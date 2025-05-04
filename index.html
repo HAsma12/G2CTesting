@@ -3,72 +3,732 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formation DevOps</title>
+    <title>Formation Web et Développement</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    
+    <style>
+       @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.accordion-button {
+    cursor: pointer;
+    text-align: left;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-button:focus {
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.accordion-button {
+    cursor: pointer;
+    text-align: left;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+.accordion-button:hover {
+    background-color: #f0f0f0;
+}
+
+.accordion-button:focus {
+    outline: none;
+}
+
+/* Custom Colors */
+:root {
+    --dark-blue: #014e84;
+    --light-gray: #b7b5c2;
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(to right, var(--dark-blue), var(--light-gray));
+    padding: 10px 20px;
+}
+
+/* Styles pour les titres */
+.section-title {
+    font-size: 2rem; /* Utilisation de 'rem' pour être plus flexible */
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Buttons */
+button,
+a {
+    background-color: var(--dark-blue);
+    color: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+a:hover {
+    background-color: var(--light-gray);
+    color: var(--dark-blue);
+}
+
+/* Accordion Section (Buttons) */
+.accordion-button {
+    background-color: var(--light-gray);
+    color: var(--dark-blue);
+}
+
+.accordion-button:hover {
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-blue);
+    padding: 20px;
+}
+
+footer a {
+    color: var(--light-gray);
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Section Backgrounds */
+.bg-gray-50 {
+    background-color: #f5f5f5;
+}
+
+.bg-blue-50 {
+    background-color: #d6e6f1;
+}
+
+/* Links */
+a {
+    color: var(--dark-blue);
+}
+
+a:hover {
+    color: var(--light-gray);
+}
+
+/* Animation Flip Cards */
+.perspective {
+    perspective: 1200px;
+}
+
+.flip-card {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
+}
+
+.flip-card:hover {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.course-details {
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.detail-item i {
+    font-size: 1.1rem; /* Réduire légèrement la taille pour être plus adaptable */
+    color: #3b82f6;
+    transition: color 0.3s ease;
+}
+
+.detail-item:hover {
+    color: #d6d5d5;
+}
+
+.detail-item.promo {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.detail-item.promo:hover {
+    color: #f43f5e;
+}
+
+
+
+/* Pour les petits écrans (mobile) */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem; /* Ajuster la taille pour mobile */
+    }
+
+    .section-description {
+        font-size: 0.9rem; /* Réduire la taille de la description */
+    }
+
+    .accordion-button {
+        font-size: 1rem; /* Adapter la taille de police */
+        padding: 12px; /* Réduire un peu la taille du bouton */
+    }
+
+    .course-details {
+        flex-direction: column; /* Empiler les éléments de détail */
+        font-size: 0.9rem;
+        align-items: flex-start; /* Aligner les items à gauche */
+    }
+
+    .flip-card {
+        height: 250px; /* Ajuster la taille de la carte sur mobile */
+    }
+
+    .detail-item i {
+        font-size: 1rem; /* Réduire légèrement la taille de l'icône */
+    }
+}
+
+/* Pour les écrans plus grands (tablettes et desktops) */
+@media (min-width: 769px) {
+    .section-title {
+        font-size: 2rem; /* Retour à une taille plus grande sur desktop */
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+
+    .course-details {
+        font-size: 1rem;
+        flex-direction: row; /* Garder une disposition horizontale */
+        align-items: center;
+    }
+
+    .flip-card {
+        height: 200px;
+    }
+
+    .accordion-button {
+        font-size: 1.1rem;
+        padding: 16px;
+    }
+
+    .detail-item i {
+        font-size: 1.1rem;
+    }
+}
+
+</style>
 </head>
-<body class="bg-gray-100">
-    
-    <!-- Navigation -->
-    <nav class="bg-blue-600 text-white p-5 fixed w-full top-0 shadow-lg">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold">Formation DevOps</h1>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:underline">À propos</a></li>
-                <li><a href="#programme" class="hover:underline">Programme</a></li>
-                <li><a href="#temoignages" class="hover:underline">Témoignages</a></li>
-                <li><a href="#inscription" class="hover:underline">Inscription</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="bg-gray-50">
 
-    <!-- Section Hero -->
-    <section class="text-center py-32 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-        <h1 class="text-5xl font-bold animate-bounce">Maîtrisez DevOps en quelques semaines</h1>
-        <p class="mt-4 text-lg">Une formation complète pour comprendre CI/CD, Docker, Kubernetes et plus encore.</p>
-        <a href="#inscription" class="mt-6 inline-block bg-white text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-all">S'inscrire maintenant</a>
-    </section>
-    
-    <!-- Section À propos -->
-    <section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-white shadow-lg rounded-lg">
-        <h2 class="text-3xl font-bold mb-4">Pourquoi suivre cette formation ?</h2>
-        <p class="text-gray-700">Le DevOps est une compétence essentielle dans le monde du développement moderne. Grâce à notre formation, vous apprendrez les outils et méthodologies les plus demandés.</p>
-    </section>
-    
-    <!-- Programme du cours -->
-    <section id="programme" class="max-w-4xl mx-auto my-12 p-6 bg-white shadow-lg rounded-lg">
-        <h2 class="text-3xl font-bold mb-4">Programme de la formation</h2>
-        <ul class="list-disc list-inside text-gray-700 space-y-2">
-            <li>✅ Introduction à DevOps</li>
-            <li>✅ Gestion du code source avec Git</li>
-            <li>✅ Intégration Continue (CI) et Déploiement Continu (CD)</li>
-            <li>✅ Conteneurisation avec Docker</li>
-            <li>✅ Orchestration avec Kubernetes</li>
-            <li>✅ Surveillance et observabilité</li>
-        </ul>
-    </section>
-    
-    <!-- Témoignages -->
-    <section id="temoignages" class="max-w-4xl mx-auto my-12 p-6 bg-white shadow-lg rounded-lg">
-        <h2 class="text-3xl font-bold mb-4">Témoignages</h2>
-        <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <p class="italic text-gray-700">"Une formation complète et enrichissante qui m'a permis d'obtenir mon premier job en DevOps !" - <strong>Alex B.</strong></p>
+    <!-- Header Section -->
+    <header class="py-24 text-white text-center" style="background: linear-gradient(to right, #cdcbcb, #cdcbcb);">
+        <div class="absolute top-4 left-4">
+            <!-- Logo plus grand en haut à gauche -->
+            <img src="logo.png" alt="Logo" class="w-32 h-32">
         </div>
-    </section>
     
-    <!-- Formulaire d'inscription -->
-    <section id="inscription" class="max-w-4xl mx-auto my-12 p-6 bg-white shadow-lg rounded-lg">
-        <h2 class="text-3xl font-bold mb-4">Inscrivez-vous maintenant</h2>
-        <form class="space-y-4">
-            <input type="text" placeholder="Votre nom" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400">
-            <input type="email" placeholder="Votre email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400">
-            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-all">S'inscrire</button>
+        <h1 class="text-4xl font-bold leading-tight">
+            Devenez un Développeur Exceptionnel !
+        </h1>
+        <p class="text-xl mt-6">
+            Apprenez à maîtriser les langages de programmation et les frameworks modernes pour créer des applications robustes.
+        </p>
+        
+    </header>
+
+       <!-- Programme du cours -->
+<section class="py-16" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">Nos Formations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Formation : Développement Web -->
+<div class="perspective">
+    <div class="flip-card">
+        <div class="flip-card-front bg-sky-400 text-white flex flex-col items-center justify-center p-4">
+            <h3 class="text-2xl font-semibold mb-2">Développement Web</h3>
+            <!-- Icônes des technologies -->
+            <div class="flex gap-3 text-3xl">
+                <i class="fab fa-html5 text-orange-500"></i>
+                <i class="fab fa-css3-alt text-blue-500"></i>
+                <i class="fab fa-js text-yellow-500"></i>
+                <i class="fab fa-php text-purple-600"></i>
+                <i class="fab fa-symfony text-gray-900"></i>
+            </div>
+        </div>
+        <div class="flip-card-back bg-blue-700 text-white p-4 rounded-lg">
+            <p class="course-details flex flex-col gap-2 text-white">
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-clock text-xl text-yellow-300"></i> 
+                    <span class="font-semibold">30 heures</span> 
+                    <span class="text-sm opacity-80">(en cours de weekend)</span>
+                </span> 
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-tag text-xl text-green-300"></i> 
+                    <span class="font-semibold">450 DT au lieu de 500DT</span>
+                    <span class="badge bg-red-500 text-white text-xs py-1 px-3 rounded-full font-bold">Promotion</span>
+
+                </span> 
+               
+
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Formation : Java Orienté Objet -->
+<div class="perspective">
+    <div class="flip-card">
+        <div class="flip-card-front bg-indigo-400 text-white flex flex-col items-center justify-center p-4">
+            <h3 class="text-2xl font-semibold mb-2">Java Orienté Objet</h3>
+            <!-- Icône de Java -->
+            <i class="fab fa-java text-red-600 text-3xl"></i>
+        </div>
+        <div class="flip-card-back bg-blue-700 text-white p-4 rounded-lg">
+            <p class="course-details flex flex-col gap-2 text-white">
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-clock text-xl text-yellow-300"></i> 
+                    <span class="font-semibold">20 heures</span> 
+                    <span class="text-sm opacity-80">(en cours de weekend)</span>
+                </span>
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-tag text-xl text-green-300"></i> 
+                    <span class="font-semibold">450DT au lieu de 500DT</span>
+                    <span class="badge bg-red-500 text-white text-xs py-1 px-3 rounded-full font-bold">Promotion</span>
+
+                </span> 
+                
+            </p>
+        </div>
+    </div>
+</div>
+
+            
+<!-- Formation : Java JEE -->
+<div class="perspective">
+    <div class="flip-card">
+        <div class="flip-card-front bg-blue-400 text-white flex flex-col items-center justify-center p-4">
+            <h3 class="text-2xl font-semibold mb-2">Java JEE</h3>
+            <!-- Icônes des technologies -->
+            <div class="flex gap-3 text-3xl">
+                <i class="fab fa-java text-red-500"></i>
+                <i class="fas fa-database text-gray-700"></i>
+            </div>
+        </div>
+        <div class="flip-card-back bg-blue-700 text-white p-4 rounded-lg">
+            <p class="course-details flex flex-col gap-2 text-white">
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-clock text-xl text-yellow-300"></i> 
+                    <span class="font-semibold">30 heures</span> 
+                    <span class="text-sm opacity-80">(en cours de weekend)</span>
+                </span> 
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-tag text-xl text-green-300"></i> 
+                    <span class="font-semibold">720DT au lieu de 800DT</span>
+                    <span class="badge bg-red-500 text-white text-xs py-1 px-3 rounded-full font-bold">Promotion</span>
+
+                </span> 
+                
+
+                <!-- Badges -->
+                
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Formation : Full Stack (Angular 17 & Spring Boot) -->
+<div class="perspective">
+    <div class="flip-card">
+        <div class="flip-card-front bg-blue-500 text-white flex flex-col items-center justify-center p-4">
+            <h3 class="text-2xl font-semibold mb-2">Full Stack (Angular 17 & Spring Boot)</h3>
+            <!-- Icônes des technologies -->
+            <div class="flex gap-3 text-3xl">
+                <i class="fab fa-angular text-red-500"></i>
+                <i class="fab fa-java text-yellow-500"></i>
+                <i class="fas fa-leaf text-green-500"></i>
+            </div>
+        </div>
+        <div class="flip-card-back bg-blue-700 text-white p-4 rounded-lg">
+            <p class="course-details flex flex-col gap-2 text-white">
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-clock text-xl text-yellow-300"></i> 
+                    <span class="font-semibold">30 heures</span> 
+                    <span class="text-sm opacity-80">(en cours de weekend)</span>
+                </span> 
+                <span class="detail-item flex items-center gap-3">
+                    <i class="fas fa-tag text-xl text-green-300"></i> 
+                    <span class="font-semibold">720 DT 800DT</span>
+                    <span class="badge bg-red-500 text-white text-xs py-1 px-3 rounded-full font-bold">Promotion</span>
+
+                </span>
+              
+
+                
+            </p>
+        </div>
+    </div>
+</div>
+
+
+</section>
+<!-- FAQ Section -->
+<section class="bg-gradient-to-r from-indigo-100 to-blue-200 py-16" id="faq">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6 text-indigo-600 text-center">Questions Fréquemment Posées</h2>
+        <div class="space-y-6">
+            <!-- Première question -->
+            <div class="faq-item bg-white shadow-lg rounded-xl p-5 flex items-center justify-between hover:shadow-2xl transition-shadow">
+                <span class="text-lg font-semibold text-indigo-600">Quelle est la durée de la formation ?</span>
+                <i class="fas fa-chevron-down text-indigo-600 cursor-pointer transform transition-transform duration-300" onclick="toggleAnswer('answer1')"></i>
+            </div>
+            <div id="answer1" class="answer hidden pl-12 pr-4 py-4 text-left text-gray-600 transition-all duration-300">
+                <p>La formation dure généralement 6 mois, avec des sessions intensives et un apprentissage basé sur des projets pratiques.</p>
+            </div>
+
+            <!-- Deuxième question -->
+            <div class="faq-item bg-white shadow-lg rounded-xl p-5 flex items-center justify-between hover:shadow-2xl transition-shadow">
+                <span class="text-lg font-semibold text-indigo-600">Faut-il avoir des connaissances préalables pour suivre la formation ?</span>
+                <i class="fas fa-chevron-down text-indigo-600 cursor-pointer transform transition-transform duration-300" onclick="toggleAnswer('answer2')"></i>
+            </div>
+            <div id="answer2" class="answer hidden pl-12 pr-4 py-4 text-left text-gray-600 transition-all duration-300">
+                <p>Aucun prérequis n'est nécessaire, nos formations sont adaptées à tous, même en reconversion professionnelle !</p>
+            </div>
+
+            <!-- Troisième question -->
+            <div class="faq-item bg-white shadow-lg rounded-xl p-5 flex items-center justify-between hover:shadow-2xl transition-shadow">
+                <span class="text-lg font-semibold text-indigo-600">La formation est-elle hybride ?</span>
+                <i class="fas fa-chevron-down text-indigo-600 cursor-pointer transform transition-transform duration-300" onclick="toggleAnswer('answer3')"></i>
+            </div>
+            <div id="answer3" class="answer hidden pl-12 pr-4 py-4 text-left text-gray-600 transition-all duration-300">
+                <p>Oui, la formation est disponible en mode hybride : vous pouvez suivre les cours en présentiel ou en ligne selon votre préférence.</p>
+            </div>
+
+            <!-- Quatrième question -->
+            <div class="faq-item bg-white shadow-lg rounded-xl p-5 flex items-center justify-between hover:shadow-2xl transition-shadow">
+                <span class="text-lg font-semibold text-indigo-600">Y a-t-il des travaux pratiques ou des projets ?</span>
+                <i class="fas fa-chevron-down text-indigo-600 cursor-pointer transform transition-transform duration-300" onclick="toggleAnswer('answer4')"></i>
+            </div>
+            <div id="answer4" class="answer hidden pl-12 pr-4 py-4 text-left text-gray-600 transition-all duration-300">
+                <p>Oui, chaque formation inclut des travaux pratiques et des projets pour mettre en application les connaissances acquises.</p>
+            </div>
+
+            <!-- Cinquième question -->
+            <div class="faq-item bg-white shadow-lg rounded-xl p-5 flex items-center justify-between hover:shadow-2xl transition-shadow">
+                <span class="text-lg font-semibold text-indigo-600">Puis-je avoir un certificat à la fin de la formation ?
+            </span>
+                <i class="fas fa-chevron-down text-indigo-600 cursor-pointer transform transition-transform duration-300" onclick="toggleAnswer('answer5')"></i>
+            </div>
+            <div id="answer5" class="answer hidden pl-12 pr-4 py-4 text-left text-gray-600 transition-all duration-300">
+                <p>Oui, chaque formation est certifiée et vous recevrez un certificat agréé par l'État à la fin de votre parcours, attestant de vos compétences acquises, ce qui peut être un atout dans votre recherche d'emploi ou pour faire évoluer votre carrière.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Script pour ouvrir/fermer les réponses -->
+<script>
+    function toggleAnswer(id) {
+        var answer = document.getElementById(id);
+        answer.classList.toggle("hidden");
+        var icon = answer.previousElementSibling.querySelector("i");
+        icon.classList.toggle("transform rotate-180");
+    }
+</script>
+
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Titre avec une couleur moderne -->
+    <h2 class="section-title text-3xl font-bold text-indigo-600 mb-4" data-aos="fade-up">Apprends avec des instructeurs experts</h2>
+    
+    <!-- Description avec une couleur plus douce -->
+    <p class="section-description text-lg text-gray-700 mb-8" data-aos="fade-up" data-aos-delay="100">
+        Les formateurs sont des professionnels du domaine, prêts à partager leur expérience et à t'accompagner dans ta formation.
+    </p>
+
+    <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
+        <!-- Premier ticket avec un fond moderne et une bordure -->
+        <div class="ticket ticket-show aos-item bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-lg shadow-lg p-4 mb-4 transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-check-circle text-2xl mr-3"></i>
+            <div class="ticket-text">
+                <strong>Apprentissage pratique :</strong> Les instructeurs t'enseignent des compétences concrètes à travers des projets réels. Tu acquiers des compétences directement applicables dans le monde professionnel.
+            </div>
+        </div>
+        
+        <!-- Deuxième ticket avec un effet hover plus marqué -->
+        <div class="ticket ticket-show aos-item bg-gradient-to-r from-green-500 to-lime-400 text-white rounded-lg shadow-lg p-4 mb-4 transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-check-circle text-2xl mr-3"></i>
+            <div class="ticket-text">
+                <strong>Soutien personnalisé :</strong> Reçois des retours et des conseils sur mesure, adaptés à ton style d'apprentissage et à tes objectifs personnels, pour une progression optimisée.
+            </div>
+        </div>
+        
+        <!-- Troisième ticket avec une bordure différente et un effet survol -->
+        <div class="ticket ticket-show aos-item bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg shadow-lg p-4 mb-4 transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
+            <i class="fas fa-check-circle text-2xl mr-3"></i>
+            <div class="ticket-text">
+                <strong>Conseils d'experts :</strong> Apprends auprès de formateurs expérimentés, alliant expertise du monde réel et pédagogie en ligne, pour te donner les meilleures chances de réussir.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- INSCRIPTION -->
+<section id="inscription" class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse items-center">
+      <!-- Image à droite -->
+      <div class="lg:w-1/2 mb-8 lg:mb-0">
+        <img src="image1.png" alt="Formation" class="w-full rounded-lg shadow-lg">
+      </div>
+  
+      <!-- Formulaire à gauche -->
+      <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-xl">
+        <h2 class="text-4xl font-bold mb-6 text-center">Inscrivez-vous Maintenant</h2>
+  
+        <form id="inscriptionForm" class="space-y-6" method="POST">
+          <!-- Champ Nom -->
+          <div>
+            <label for="nom" class="block text-lg font-medium text-gray-700">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition duration-200" required>
+          </div>
+  
+          <!-- Champ Prénom -->
+          <div>
+            <label for="prenom" class="block text-lg font-medium text-gray-700">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition duration-200" required>
+          </div>
+  
+          <!-- Champ Téléphone -->
+          <div>
+            <label for="telephone" class="block text-lg font-medium text-gray-700">Téléphone / WhatsApp</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="Votre numéro" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition duration-200" required>
+          </div>
+  
+          <!-- Formations -->
+          <div>
+            <label class="block text-lg font-medium text-gray-700">Choisissez votre formation(s)</label>
+            <div class="flex flex-wrap gap-4">
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" name="formations[]" value="Développement Web" class="w-5 h-5 rounded">
+                <span>Développement Web</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" name="formations[]" value="Java Orienté Objet" class="w-5 h-5 rounded">
+                <span>Java Orienté Objet</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" name="formations[]" value="Java JEE" class="w-5 h-5 rounded">
+                <span>Java JEE</span>
+              </label>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" name="formations[]" value="Data Science" class="w-5 h-5 rounded">
+                <span>Data Science</span>
+              </label>
+            </div>
+          </div>
+  
+          <!-- Bouton -->
+          <div>
+            <button type="submit" class="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+              Valider l'inscription
+            </button>
+          </div>
         </form>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center p-5">
-        © 2024 Formation DevOps - Tous droits réservés
-    </footer>
 
+
+  <div id="alert" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <h3 class="text-2xl font-semibold">Pré-inscription réussie !</h3>
+      <p class="mt-4">Merci de vous être inscrit !</p>
+      <button onclick="closeAlert()" class="mt-6 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Fermer</button>
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<footer class="bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400 text-white py-10" >
+    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center space-y-6">
+
+        <!-- Partie centrale : Logo et phrase -->
+        <div class="text-center">
+            <img src="logo.png" alt="Logo" class="w-32 h-32 mb-4 mx-auto">
+            <p class="text-base md:text-lg font-light italic max-w-md mx-auto">
+                Développez vos compétences et transformez votre avenir professionnel.
+            </p>
+        </div>
+
+        <!-- Partie basse : Informations de contact -->
+        <div class="flex flex-col md:flex-row justify-center items-center md:items-start text-center md:text-left space-y-4 md:space-y-0 md:space-x-10">
+            <p class="flex items-center text-lg"><i class="fas fa-phone-alt mr-3"></i><strong>70 260 621</strong></p>
+            <p class="flex items-center text-lg"><i class="fas fa-mobile-alt mr-3"></i><strong>23 580 745</strong></p>
+            <p class="flex items-center text-lg"><i class="fas fa-envelope mr-3"></i><strong>gcc.commercial002@gmail.com</strong></p>
+            <p class="flex items-center text-lg"><i class="fas fa-map-marker-alt mr-3"></i><strong>G2C, Avenue Hedi Nouira, à côté de MG Ennasr 2</strong></p>
+        </div>
+
+    </div>
+</footer>
+
+
+
+
+    <script>
+        // Initialisation AOS
+        AOS.init();
+
+        // Accordéon FAQ
+        document.querySelectorAll(".accordion-button").forEach(button => {
+            button.addEventListener("click", () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle("open");
+            });
+        });
+
+      
+    function showAlert(event) {
+        event.preventDefault(); // Empêche l'envoi immédiat du formulaire
+        alert("Votre inscription a été enregistrée avec succès !");
+        document.getElementById("inscriptionForm").submit(); // Envoie le formulaire après l'alerte
+    }
+
+
+
+   
+  
+  // Formulaire AJAX
+  document.getElementById('inscriptionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('inscription.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Erreur serveur');
+      return response.text();
+    })
+    .then(data => {
+      console.log(data);
+      document.getElementById("alert").classList.remove("hidden");
+    })
+    .catch(error => {
+      alert("Erreur AJAX : " + error.message);
+    });
+  });
+
+  function closeAlert() {
+    document.getElementById("alert").classList.add("hidden");
+  }
+
+
+
+
+
+</script>
 </body>
 </html>
