@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centre de Formation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-[#f7f7f9]">
+
+<!-- Navbar fine avec logo qui dépasse proprement -->
+<nav class="bg-white shadow-md h-20 px-6 md:px-8 flex justify-between items-center relative overflow-visible">
+  <!-- Logo qui déborde visuellement -->
+  <div class="flex items-center mt-2">
+    <img src="logo.png" alt="G2C Logo" class="h-12 md:h-40 w-auto object-contain transform -translate-y-0" />
+  </div>
+
+  <!-- Liens poussés à droite -->
+  <div class="ml-auto flex space-x-6 text-sm md:text-base font-semibold">
+    <a href="#accueil" class="text-[#214980] hover:underline">Accueil</a>
+    <a href="#formations" class="text-[#214980] hover:underline">Formations</a>
+    <a href="#contact" class="text-[#214980] hover:underline">Contact</a>
+  </div>
+</nav>
+
+<br><br>
+
+<section class="w-full bg-[#214980] text-white py-17 px-6 md:px-16 text-center rounded-xl max-w-7xl mx-auto relative overflow-hidden">
+  <br><br>
+ 
+  <!-- Ligne 1 -->
+  <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+    <span class="inline-block bg-blue-600 text-white px-4 py-1 rounded-3xl">Formez-vous</span>
+    <span class="text-white">au QA.</span>
+  </h1>
+
+  <!-- Ligne 2 -->
+  <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mt-4">
+    <span class="inline-block bg-green-500 text-white px-4 py-1 rounded-2xl">Accélérez</span>
+    <span class="text-white">votre carrière</span>
+  </h2>
+
+  <!-- Ligne décorative SVG -->
+  <div class="flex justify-center mt-6 mb-4">
+    <svg width="220" height="30" viewBox="0 0 220 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 15C33 10 77 30 110 15C143 0 187 20 219 15" stroke="white" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- Texte descriptif -->
+  <p class="text-lg md:text-xl text-gray-300 mt-4 max-w-2xl mx-auto">
+    Que vous soyez débutant ou en reconversion, ce parcours en test logiciel vous accompagne étape par étape : commencez avec l’ISTQB, poursuivez avec le test automatisé, puis visez un rôle de Test Manager.
+    Il s’agit de formations certifiantes et évolutives, conçues pour vous ouvrir toutes les portes du métier.
+  </p>
+
+  <!-- Bouton -->
+  <div class="mt-10">
+    <a href="#formations" class="bg-white text-black font-semibold px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
+      En savoir plus
+      
+    </a><br><br>
+  </div>
+</section>
+
+<!-- Formations -->
+<section id="formations" class="px-6 py-12 bg-white">
+  <h2 class="text-3xl font-bold text-center text-[#214980] mb-10">Nos Formations</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+
+<!-- Formation Card -->
+<div class="bg-white border border-[#b5b3c0] rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2">
+  <!-- Image avec animation au survol -->
+  <img src="ITSQB.jpg" alt="Testing Manuel & Automatique" class="w-250 h-40 object-cover rounded-full mx-auto mt-4 mb-6 transition-transform duration-300 ease-in-out transform hover:scale-110" />
+  <div class="p-6">
+  <!-- Titre reformulé -->
+  <h3 class="text-xl font-semibold text-[#214980] mb-2 hover:underline transition">Devenez Testeur de Logiciels Certifié ISTQB</h3>
+  <!-- Paragraphe reformulé -->
+  <p class="text-[#333] text-sm opacity-70 hover:opacity-100 transition">Obtenez votre certification ISTQB grâce à notre formation complète et pratique en test logiciel.</p>
+  <!-- Bouton "En savoir plus" -->
+  <div class="mt-6 flex justify-center">
+
+    <a href="page_ISTQB.html" class="bg-[#214980] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
+      En savoir plus
+    </a>
+  </div>
+  </div>
+</div>
+
+
+
+    <!-- Test Manager -->
+    <div class="bg-white border border-[#b5b3c0] rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2">
+      <img src="https://via.placeholder.com/400x200?text=Test+Manager" alt="Test Manager" class="w-full h-48 object-cover" />
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-[#214980] mb-2 hover:underline transition">Test Manager</h3>
+        <p class="text-[#333] text-sm opacity-70 hover:opacity-100 transition">Devenez responsable qualité : gérez des projets de test, des équipes QA, et utilisez des outils comme JIRA, TestRail.</p>
+        <p class="text-[#b5b3c0] italic mt-2">Durée : 1.5 mois</p>
+      </div>
+    </div>
+
+    <!-- QA Express -->
+    <div class="bg-white border border-[#b5b3c0] rounded-2xl shadow-xl transform transition-transform hover:-translate-y-2">
+      <img src="https://via.placeholder.com/400x200?text=QA+Express" alt="Hot Formation en QA" class="w-full h-48 object-cover" />
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-[#214980] mb-2 hover:underline transition">Hot Formation en QA</h3>
+        <p class="text-[#333] text-sm opacity-70 hover:opacity-100 transition">Session accélérée pour acquérir les bases du testing logiciel en un temps réduit, idéale pour reconversion rapide.</p>
+        <p class="text-[#b5b3c0] italic mt-2">Durée : 3 semaines</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="bg-[#214980] text-white text-center py-6">
+  <p>© 2025 CentreFormationPro. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

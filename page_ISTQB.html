@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centre de Formation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="style.css" rel="stylesheet">
+  <!-- Animate.css pour les animations -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-[#f7f7f9]">
+
+<!-- Navbar fine avec logo qui déborde proprement -->
+<nav class="bg-white shadow-md h-20 px-6 md:px-8 flex justify-between items-center relative overflow-visible">
+  <!-- Logo qui déborde visuellement -->
+  <div class="flex items-center mt-2">
+    <img src="logo.png" alt="G2C Logo" class="h-12 md:h-40 w-auto object-contain transform -translate-y-0" />
+  </div>
+
+  <!-- Liens poussés à droite -->
+  <div class="ml-auto flex space-x-6 text-sm md:text-base font-semibold">
+    <a href="#accueil" class="text-[#214980] hover:underline">Accueil</a>
+    <a href="#formations" class="text-[#214980] hover:underline">Formations</a>
+    <a href="#contact" class="text-[#214980] hover:underline">Contact</a>
+  </div>
+</nav>
+
+<!-- Section Formation -->
+<section class="w-full bg-[#f7f7f9] py-20 px-6 md:px-16 text-left rounded-xl max-w-7xl mx-auto relative overflow-hidden">
+    <!-- Titre de la formation avec animation -->
+    <h1 class="text-5xl md:text-6xl font-extrabold text-[#28A745] mb-6 flex items-center animate__animated animate__fadeIn">
+      <span class="mr-2">🌟</span>Préparation à la certification ISTQB<span class="ml-2">🌟</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-700 mb-6">
+      Cette formation vous permet de maîtriser les bases des tests logiciels et de vous préparer efficacement à la certification ISTQB reconnue internationalement.
+    </p>
+    
+    <!-- Contenu (Texte à gauche et Vidéo à droite) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate__animated animate__fadeIn">
+      <!-- Partie gauche : texte avec informations -->
+      <div class="text-left space-y-6">
+        <h3 class="text-2xl font-semibold text-[#214980] mb-4">Pourquoi choisir cette formation ?</h3>
+        <p class="text-[#333] text-sm md:text-base opacity-70 mb-6">
+          Notre programme inclut des cours théoriques et des sessions pratiques pour vous préparer à réussir l'examen ISTQB, tout en acquérant des compétences concrètes dans les tests logiciels.
+        </p>
+        
+        <!-- Informations sur la formation avec emojis modernes et professionnels -->
+        <ul class="space-y-4 text-sm md:text-base text-[#333] opacity-80">
+          <li><span class="text-[#28A745]">✅</span> Préparation à la certification : reconnue à l’international, elle vous permettra de maîtriser les bases des tests logiciels.</li>
+          <li><span class="text-[#28A745]">✅</span> Labs pratiques : Apprenez à tester une application complète (frontend & backend) à l’aide d’outils tels que Jira, Docker, TestLink, Cucumber, Linux, Git, et bien d’autres.</li>
+          <li><span class="text-[#28A745]">⏳</span> 32 heures de cours réparties sur les weekends</li>
+          <li><span class="text-[#28A745]">🌐</span> Formation en ligne ou en présentiel selon votre préférence</li>
+          <li><span class="text-[#28A745]">💬</span> Soutien professionnel continu tout au long de la formation</li>
+        </ul>
+
+        <!-- Bouton de téléchargement du programme -->
+        <div class="flex space-x-4 mt-6">
+          <a href="Asma.pdf" download class="bg-[#214980] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
+            Télécharger le programme
+          </a>
+
+          <a href="https://wa.me/+21623580745" target="_blank" class="bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
+            Contact via WhatsApp
+          </a>
+        </div>
+      </div>
+  
+      <!-- Partie droite : vidéo -->
+      <div class="flex justify-center col-span-1 md:col-span-1 mt-60 md:mt-0">
+        <video class="w-full h-auto rounded-lg" autoplay loop muted>
+          <source src="1107888_1080p_4k_3840x2160.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+      </div>
+  </section>
+<!-- Section Outils utilisés -->
+<section class="w-full bg-[#f7f7f9] py-20 px-6 md:px-16 text-center">
+  <h2 class="text-4xl md:text-5xl font-extrabold text-[#214980] mb-10">
+    Outils que vous allez maîtriser
+  </h2>
+
+  <!-- Grille des outils avec logos uniformes et animation -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+    <!-- Exemple pour chaque logo -->
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn">
+      <img src="outils/images.png" alt="Cucumber" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-1s">
+      <img src="outils/Docker-Logo.png" alt="Docker" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-2s">
+      <img src="outils/Postman_(software).png" alt="Postman" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-3s">
+      <img src="outils/testlink.jpg" alt="TestLink" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-4s">
+      <img src="outils/25231.png" alt="Jira" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-5s">
+      <img src="outils/linux-logo-2.png" alt="Linux" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-6s">
+      <img src="outils/git-logo.png" alt="Git" class="h-20 w-20 object-contain" />
+    </div>
+    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md transition-transform duration-500 hover:scale-105 animate__animated animate__zoomIn animate__delay-7s">
+      <img src="outils/testng.png" alt="TestNG" class="h-20 w-20 object-contain" />
+    </div>
+  </div>
+</section>
+
+      
+
+<!-- Footer -->
+<footer id="contact" class="bg-[#214980] text-white text-center py-6">
+  <p>© 2025 CentreFormationPro. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
