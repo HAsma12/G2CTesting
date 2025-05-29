@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selenium avec Java & Python - Moderne & Animé</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    /* Animation fade + slide up */
+    @keyframes fadeSlideUp {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    .fade-slide-up {
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    /* Navbar shadow on scroll */
+    header.scrolled {
+      box-shadow: 0 4px 15px rgba(33, 73, 128, 0.3);
+      background-color: #fff !important;
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Button glow on hover */
+    .btn-glow:hover {
+      box-shadow:
+        0 0 8px #214980,
+        0 0 20px #214980,
+        0 0 30px #43B02A;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+    .btn-glow:active {
+      transform: scale(0.95);
+      transition: transform 0.1s ease;
+    }
+
+    /* SweetAlert2 Custom Styles */
+    .swal2-popup {
+      border-radius: 1.5rem !important;
+      box-shadow:
+        0 10px 40px rgba(33, 73, 128, 0.15),
+        0 0 30px rgba(67, 176, 42, 0.2);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-size: 16px !important;
+      color: #214980 !important;
+      max-width: 600px !important;
+      padding: 2.5rem 3rem !important;
+      background: #f7f7f9 !important;
+      overflow-wrap: break-word;
+    }
+    .swal2-title {
+      font-weight: 800 !important;
+      font-size: 1.8rem !important;
+      margin-bottom: 1rem !important;
+      color: inherit !important;
+      user-select: none;
+      filter: drop-shadow(1px 2px 2px rgba(67, 176, 42, 0.3));
+    }
+    .swal2-html-container {
+      text-align: left;
+      color: #214980;
+      font-weight: 500;
+      line-height: 1.6;
+      user-select: text;
+    }
+    .swal2-html-container p {
+      margin: 0.6rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+    .swal2-html-container p::before {
+      content: "✅";
+      color: #43B02A;
+      font-size: 1.2rem;
+      line-height: 1;
+      user-select: none;
+    }
+    .swal2-actions {
+      margin-top: 1.8rem !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+    .swal2-confirm {
+      background: #43B02A !important;
+      color: white !important;
+      padding: 0.7rem 2.5rem !important;
+      border-radius: 9999px !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      box-shadow:
+        0 6px 15px rgba(67, 176, 42, 0.4);
+      transition: background-color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .swal2-confirm:hover {
+      background: #369123 !important;
+    }
+    .swal2-confirm:active {
+      transform: scale(0.95);
+      transition: transform 0.1s ease;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Navbar -->
+  <header id="navbar" class="fixed w-full top-0 left-0 z-50 bg-transparent transition-all duration-300">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between h-20 px-6 md:px-12 bg-white bg-opacity-0">
+      <img src="logo.png" alt="Logo G2C" class="h-14 md:h-16 object-contain" />
+      <ul class="hidden md:flex space-x-10 font-semibold text-[#214980] text-lg">
+        <li><a href="index.html" class="hover:text-[#43B02A] transition duration-300">Accueil</a></li>
+        <li><a href="index.html" class="hover:text-[#43B02A] transition duration-300">Formations</a></li>
+        <li><a href="#contact" class="hover:text-[#43B02A] transition duration-300">Contact</a></li>
+      </ul>
+      <button id="mobileMenuBtn" class="md:hidden text-[#214980] focus:outline-none" aria-label="Ouvrir le menu mobile">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="#214980" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+        </svg>
+      </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden bg-white shadow-lg px-6 py-4 text-[#214980] font-semibold flex flex-col space-y-4">
+      <a href="index.html" class="hover:text-[#43B02A] transition duration-300">Accueil</a>
+      <a href="index.html" class="hover:text-[#43B02A] transition duration-300">Formations</a>
+      <a href="#contact" class="hover:text-[#43B02A] transition duration-300">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="flex-grow flex flex-col justify-center items-center px-6 md:px-12 pt-32 pb-24 max-w-4xl mx-auto text-center">
+    <h1 class="text-5xl md:text-7xl font-extrabold text-[#214980] fade-slide-up" style="animation-delay: 0s;">
+      Test automatique avec <span class="text-[#43B02A]">Selenium</span>
+    </h1>
+    <p class="text-gray-600 mt-6 max-w-xl mx-auto text-lg md:text-xl fade-slide-up" style="animation-delay: 0.2s;">
+      Choisissez votre langage préféré pour découvrir nos parcours dédiés et booster votre carrière QA.
+    </p>
+
+    <div class="mt-16 flex flex-col sm:flex-row gap-10 justify-center fade-slide-up" style="animation-delay: 0.4s;">
+      <button
+        onclick="showPython()"
+        class="btn-glow bg-[#214980] text-white py-5 px-12 rounded-3xl font-semibold text-lg shadow-lg focus:ring-4 focus:ring-[#214980]/50 active:scale-95 transition-transform flex items-center justify-center gap-3 select-none"
+        aria-label="Afficher la formation Selenium avec Python"
+      >
+         Selenium avec Python
+      </button>
+      <button
+        onclick="showJava()"
+        class="btn-glow bg-[#43B02A] text-white py-5 px-12 rounded-3xl font-semibold text-lg shadow-lg focus:ring-4 focus:ring-[#43B02A]/50 active:scale-95 transition-transform flex items-center justify-center gap-3 select-none"
+        aria-label="Afficher la formation Selenium avec Java"
+      >
+         Selenium avec Java
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-[#214980] text-white text-center py-6 select-none">
+    <p class="text-sm md:text-base">&copy; 2025 CentreFormationPro. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Navbar shadow on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 20){
+        navbar.classList.add('scrolled');
+        navbar.querySelector('nav').classList.add('bg-white', 'bg-opacity-100');
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.querySelector('nav').classList.remove('bg-white', 'bg-opacity-100');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // SweetAlert for Python
+    function showPython() {
+      Swal.fire({
+        title: ' Selenium avec Python',
+        html: `
+          <p>Formation pratique encadrée par un expert QA</p>
+          <p>Préparation à la certification internationale A4Q</p>
+          <p>35 heures réparties sur les <strong>weekends</strong></p>
+          <p>Format hybride : en ligne & présentiel à Tunis</p>
+          <p>Automatisation avec Python, librairies modernes et frameworks</p>
+          <p>Projets réels + accompagnement CV / LinkedIn</p>
+        `,
+        showCancelButton: true,
+        cancelButtonText: 'Fermer',
+        confirmButtonText: '📄 Télécharger le programme',
+        confirmButtonAriaLabel: 'Télécharger le programme Python',
+        background: '#f7f7f9',
+        width: 600,
+        customClass: { popup: 'rounded-3xl shadow-2xl' },
+        didOpen: () => {
+          const content = Swal.getHtmlContainer();
+          content.style.opacity = 0;
+          content.style.transition = 'opacity 0.4s ease';
+          setTimeout(() => { content.style.opacity = 1; }, 50);
+        },
+        preConfirm: () => {
+          // Télécharger PDF sans fermer la popup
+          const link = document.createElement('a');
+          link.href = 'programme_python.pdf';
+          link.download = 'programme_python.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          return false; // empêche la fermeture
+        }
+      });
+    }
+
+    // SweetAlert for Java
+    function showJava() {
+      Swal.fire({
+        title: '☕ Selenium avec Java',
+        html: `
+          <p>Formation pratique encadrée par un expert QA</p>
+          <p>Préparation à la certification internationale A4Q</p>
+          <p>40 heures réparties sur les <strong>weekends</strong></p>
+          <p>Format hybride : en ligne & présentiel à Tunis</p>
+          <p>Projets réels + accompagnement CV / LinkedIn</p>
+        `,
+        showCancelButton: true,
+        cancelButtonText: 'Fermer',
+        confirmButtonText: '📄 Télécharger le programme',
+        confirmButtonAriaLabel: 'Télécharger le programme Java',
+        background: '#f7f7f9',
+        width: 600,
+        customClass: { popup: 'rounded-3xl shadow-2xl' },
+        didOpen: () => {
+          const content = Swal.getHtmlContainer();
+          content.style.opacity = 0;
+          content.style.transition = 'opacity 0.4s ease';
+          setTimeout(() => { content.style.opacity = 1; }, 50);
+        },
+        preConfirm: () => {
+          const link = document.createElement('a');
+          link.href = 'programme_java.pdf';
+          link.download = 'programme_java.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          return false;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
