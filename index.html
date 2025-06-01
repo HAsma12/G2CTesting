@@ -9,41 +9,62 @@
 
 </head>
 <body class="bg-[#f7f7f9] text-gray-800">
+
+
 <!-- Navbar -->
 <header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8"><br>
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
     <div class="flex justify-between items-center h-24">
-      
-      <!-- Logo seul, plus grand -->
+
+      <!-- Logo -->
       <div class="flex items-center">
-      <img src="logo.png" class="h-28 md:h-32 w-auto" />
+        <img src="logo.png" class="h-24 md:h-32 w-auto" />
       </div>
 
-      <!-- Menu principal -->
+      <!-- Menu desktop -->
       <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
         <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
-       <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+        <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
         <a href="#formations" class="hover:text-teal-500">FORMATIONS</a>
         <a href="#" class="hover:text-teal-500">CALENDRIER</a>
-       
       </nav>
 
-     
+      <!-- Menu mobile button -->
+      <button id="menuBtn" class="md:hidden text-3xl text-[#214980] focus:outline-none">
+        &#9776;
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
+    <div class="flex justify-end">
+      <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
+    </div>
+    <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
+      <a href="index.html" class="block">ACCEUIL</a>
+      <a href="#a-propos" class="block">QUI SOMMES-NOUS</a>
+      <a href="#formations" class="block">FORMATIONS</a>
+      <a href="#" class="block">CALENDRIER</a>
+    </nav>
   </div>
 </header>
 
-<!-- Ombre sticky au scroll -->
+<!-- Sticky navbar shadow on scroll -->
 <style>
   .sticky-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.007);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
     background-color: white;
   }
 </style>
 
-<!-- Script ombre au scroll -->
+<!-- JS pour menu mobile -->
 <script>
   const navbar = document.getElementById("navbar");
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
   window.addEventListener("scroll", () => {
     if (window.scrollY > 10) {
       navbar.classList.add("sticky-shadow");
@@ -51,7 +72,16 @@
       navbar.classList.remove("sticky-shadow");
     }
   });
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("hidden");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
 </script>
+
 
 
 
@@ -288,22 +318,23 @@
   
 
 <footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
-    
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
+
     <!-- Bloc Logo & Intro -->
-    <div>
- <img src="logo.png" class="h-28 md:h-36 w-auto" />      <p class="text-sm text-[#6B7280] mb-6">
+    <div class="flex flex-col items-center md:items-start">
+      <img src="logo.png" class="h-28 md:h-36 w-auto mb-4" />
+      <p class="text-sm text-[#6B7280] mb-6 max-w-xs">
         Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
       </p>
 
       <div>
         <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
-        <div class="flex items-center space-x-4">
+        <div class="flex justify-center md:justify-start items-center space-x-4">
           <!-- Facebook -->
           <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
             <i class="fab fa-facebook-f text-lg"></i>
           </a>
-            <!-- LinkedIn -->
+          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
             <i class="fab fa-linkedin-in text-lg"></i>
           </a>
@@ -311,27 +342,25 @@
           <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
             <i class="fab fa-instagram text-lg"></i>
           </a>
-        
-         
         </div>
       </div>
     </div>
 
     <!-- Bloc Menu -->
-    <div>
+    <div class="flex flex-col items-center md:items-start">
       <h4 class="font-semibold mb-4">Menu</h4>
       <ul class="space-y-2 text-sm text-[#1F2D3D]">
         <li><a href="#formations" class="hover:text-[#214980]">Formations</a></li>
-        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>     
+        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>
         <li><a href="#a-propos" class="hover:text-[#214980]">À propos</a></li>
       </ul>
     </div>
 
     <!-- Bloc Contact -->
-    <div>
+    <div class="flex flex-col items-center md:items-start">
       <h4 class="font-semibold mb-4">Contact</h4>
-      <ul class="space-y-3 text-sm text-[#1F2D3D]">
-        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745 </li>
+      <ul class="space-y-3 text-sm text-[#1F2D3D] max-w-xs">
+        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745</li>
         <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (216) 70 621 226</li>
         <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
       </ul>
@@ -344,9 +373,5 @@
     <i class="fab fa-whatsapp text-white text-2xl"></i>
   </a>
 </footer>
-
-
-     
-  
 </body>
 </html>
