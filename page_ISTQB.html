@@ -10,7 +10,18 @@
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 </head>
+
+<style>
+   
+  </style>
 <body class="bg-[#f7f7f9]">
 
 <!-- Navbar -->
@@ -25,44 +36,129 @@
   </div>
 </nav>
 
-<!-- Section Formation -->
-<section class="w-full bg-[#f7f7f9] py-20 px-6 md:px-16 text-left rounded-xl max-w-7xl mx-auto relative overflow-hidden">
-  <h1 class="text-5xl md:text-6xl font-extrabold text-[#28A745] mb-6 animate__animated animate__fadeIn">
-    Préparation à la certification ISTQB
-  </h1>
-  <p class="text-lg md:text-xl text-gray-700 mb-6">
-    Cette formation vous permet de maîtriser les bases des tests logiciels et de vous préparer efficacement à la certification ISTQB reconnue internationalement.
-  </p>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate__animated animate__fadeIn">
-    <div class="text-left space-y-6">
-      <h3 class="text-2xl font-semibold text-[#214980] mb-4">Pourquoi choisir cette formation ?</h3>
-      <p class="text-[#333] text-sm md:text-base opacity-70 mb-6">
-        Notre programme inclut des cours théoriques et des sessions pratiques pour vous préparer à réussir l'examen ISTQB, tout en acquérant des compétences concrètes dans les tests logiciels.
-      </p>
-      <ul class="space-y-4 text-sm md:text-base text-[#333] opacity-80">
-        <li>✅ Préparation à la certification : reconnue à l’international.</li>
-        <li>✅ Labs pratiques : outils tels que Jira, Docker, TestLink, etc.</li>
-        <li>⏳ 32 heures de cours réparties sur les weekends</li>
-        <li>🌐 Formation en ligne ou en présentiel</li>
-        <li>💬 Soutien professionnel continu</li>
-      </ul>
 
-      <div class="flex space-x-4 mt-6">
-        <a href="programme ISTQB.pdf.pdf" download class="bg-[#214980] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
-          Télécharger le programme
-        </a>
-        <a href="https://wa.me/+21623580745" target="_blank" class="bg-[#25D366] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:scale-105 transition-transform duration-300">
-          Contact via WhatsApp
-        </a>
-      </div>
-    </div>
 
-    <div class="flex justify-center mt-10 md:mt-0">
-      <img src="groupeISTQB.jpg" alt="Formation ISTQB" class="w-full h-[400px] md:h-[500px] rounded-lg object-cover" />
+<!-- Section principale -->
+<div
+  class="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-slate-50 px-6 py-20"
+  x-data="{ showDetails: false }"
+>
+  <!-- Titre & sous-titre -->
+  <div class="max-w-4xl mx-auto text-center space-y-6">
+    <h1
+      class="text-5xl md:text-6xl font-extrabold text-[#1E3A8A] tracking-tight animate__animated animate__bounceInDown"
+    >
+      Test Manuel – Préparation à la Certification <span class="text-[#43B02A]">ISTQB</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
+      Une formation essentielle pour étudiants, professionnels ou personnes en reconversion souhaitant maîtriser les fondamentaux du test logiciel.
+    </p>
+  </div>
+
+  <!-- Bouton toggle -->
+  <div class="flex justify-center mt-12">
+    <button
+      @click="showDetails = !showDetails"
+      class="relative inline-flex items-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-xl transition-transform duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
+      :class="showDetails ? 'animate__animated animate__pulse' : 'animate__animated animate__headShake'"
+      aria-expanded="false"
+      :aria-expanded="showDetails.toString()"
+    >
+      <span x-text="showDetails ? 'Masquer les détails' : 'Plus de détails'"></span>
+      <svg
+        class="ml-3 w-6 h-6 transition-transform duration-500"
+        :class="showDetails ? 'rotate-180' : ''"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Détails -->
+  <div
+    x-show="showDetails"
+    x-transition:enter="animate__animated animate__fadeInDown animate__faster"
+    x-transition:leave="animate__animated animate__fadeOutUp animate__faster"
+    class="max-w-5xl mx-auto mt-14 bg-white rounded-3xl shadow-2xl p-10 space-y-8 border border-[#1E3A8A]/20"
+    style="display:none;"
+  >
+    <h2 class="text-4xl font-bold text-[#1E3A8A] animate__animated animate__fadeInLeft">
+      Détails de la formation ISTQB
+    </h2>
+
+    <p class="text-gray-700 text-lg leading-relaxed animate__animated animate__fadeInUp animate__delay-1s">
+      Cette formation allie théorie et pratique pour une préparation optimale à l’examen officiel ISTQB. Elle inclut des cas concrets, outils professionnels et accompagnement personnalisé.
+    </p>
+
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-disc list-inside text-gray-800 text-lg animate__animated animate__fadeInUp animate__delay-1_5s">
+      <li>Introduction au test logiciel et à la norme ISTQB</li>
+      <li>Techniques de conception des cas de tests</li>
+      <li>Cycle de vie du test logiciel</li>
+      <li>Tests fonctionnels, non fonctionnels, régression</li>
+      <li>Pratique avec Cucumber, Linux, Docker, Jenkins</li>
+      <li>Exercices corrigés & simulations d’examen</li>
+      <li>Préparation et accompagnement à la certification</li>
+      <li>32 heures de formation (sessions week-end)</li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
+      <a
+        href="programme_ISTQB.pdf"
+        download
+        @click.prevent="
+          Swal.fire({
+            icon: 'success',
+            title: 'Téléchargement en cours',
+            text: 'Le programme ISTQB va être téléchargé.',
+            timer: 2000,
+            showConfirmButton: false,
+            timerProgressBar: true,
+            didOpen: () => {
+              const timerInterval = setInterval(() => {}, 100);
+              setTimeout(() => clearInterval(timerInterval), 2000);
+            }
+          });
+          setTimeout(() => window.location.href = 'programme_ISTQB.pdf', 2100);
+        "
+        class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
+      >
+        <svg class="w-6 h-6 mr-3 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12l7 7 7-7"></path>
+        </svg>
+        Télécharger le programme
+      </a>
+
+      <button
+        @click="
+          Swal.fire({
+            icon: 'info',
+            title: 'Redirection WhatsApp',
+            text: 'Vous allez être redirigé vers WhatsApp.',
+            timer: 2000,
+            showConfirmButton: false,
+            timerProgressBar: true
+          });
+          setTimeout(() => window.open('https://wa.me/21623580745', '_blank'), 2100);
+        "
+        class="flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#25D366]/60"
+      >
+        <svg class="w-6 h-6 mr-3 animate-pulse" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.52 3.48A11.94 11.94 0 0012 1a11.94 11.94 0 00-8.52 2.48A12.09 12.09 0 001 12c0 2.11.62 4.09 1.76 5.74L1 23l5.36-1.69A11.88 11.88 0 0012 23c5.42 0 9.86-4.47 9.86-10S17.42 3 12 3a11.7 11.7 0 00-1.66.13l-.01 0zM12 21a8.59 8.59 0 01-4.43-1.2l-.32-.19-3.17 1 1-3.12-.2-.32A8.58 8.58 0 013 12c0-4.75 4-8.6 9-8.6 4.87 0 8.84 3.81 8.84 8.5S16.87 20.9 12 21z"/>
+        </svg>
+        Contacter via WhatsApp
+      </button>
     </div>
   </div>
-</section>
+</div>
+
+
+     
+
 
 <!-- Section Outils utilisés -->
 <section class="w-full bg-[#f7f7f9] py-20 px-6 md:px-16 text-center">
@@ -275,9 +371,6 @@
   
 
   
- 
-
-
 
 
 <!-- Footer -->
