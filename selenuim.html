@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth" >
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Selenium avec Java & Python - Moderne & Animé</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    /* Animation fade + slide up */
     @keyframes fadeSlideUp {
       0% {opacity: 0; transform: translateY(30px);}
       100% {opacity: 1; transform: translateY(0);}
     }
-
     .fade-slide-up {
       animation: fadeSlideUp 0.8s ease forwards;
     }
-
-    /* Navbar shadow on scroll */
-    header.scrolled {
-      box-shadow: 0 4px 15px rgba(33, 73, 128, 0.3);
-      background-color: #fff !important;
-      transition: box-shadow 0.3s ease;
-    }
-
-    /* Button glow on hover */
     .btn-glow:hover {
-      box-shadow:
-        0 0 8px #214980,
-        0 0 20px #214980,
-        0 0 30px #43B02A;
+      box-shadow: 0 0 8px #214980, 0 0 20px #214980, 0 0 30px #43B02A;
       transform: scale(1.05);
       transition: all 0.3s ease;
     }
@@ -37,54 +25,31 @@
       transform: scale(0.95);
       transition: transform 0.1s ease;
     }
-
-    /* SweetAlert2 Custom Styles */
     .swal2-popup {
       border-radius: 1.5rem !important;
-      box-shadow:
-        0 10px 40px rgba(33, 73, 128, 0.15),
-        0 0 30px rgba(67, 176, 42, 0.2);
+      box-shadow: 0 10px 40px rgba(33, 73, 128, 0.15), 0 0 30px rgba(67, 176, 42, 0.2);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
       font-size: 16px !important;
       color: #214980 !important;
       max-width: 600px !important;
       padding: 2.5rem 3rem !important;
       background: #f7f7f9 !important;
-      overflow-wrap: break-word;
     }
     .swal2-title {
       font-weight: 800 !important;
       font-size: 1.8rem !important;
       margin-bottom: 1rem !important;
-      color: inherit !important;
-      user-select: none;
       filter: drop-shadow(1px 2px 2px rgba(67, 176, 42, 0.3));
     }
     .swal2-html-container {
       text-align: left;
-      color: #214980;
       font-weight: 500;
       line-height: 1.6;
-      user-select: text;
-    }
-    .swal2-html-container p {
-      margin: 0.6rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1rem;
     }
     .swal2-html-container p::before {
       content: "✅";
+      margin-right: 0.5rem;
       color: #43B02A;
-      font-size: 1.2rem;
-      line-height: 1;
-      user-select: none;
-    }
-    .swal2-actions {
-      margin-top: 1.8rem !important;
-      display: flex !important;
-      justify-content: center !important;
     }
     .swal2-confirm {
       background: #43B02A !important;
@@ -93,173 +58,233 @@
       border-radius: 9999px !important;
       font-weight: 700 !important;
       font-size: 1.1rem !important;
-      box-shadow:
-        0 6px 15px rgba(67, 176, 42, 0.4);
-      transition: background-color 0.3s ease;
-      user-select: none;
-      cursor: pointer;
     }
     .swal2-confirm:hover {
       background: #369123 !important;
     }
-    .swal2-confirm:active {
-      transform: scale(0.95);
-      transition: transform 0.1s ease;
+    #formationDetails {
+      position: relative;
+    }
+    #closeDetails {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #214980;
+    }
+    #closeDetails:hover {
+      color: #43B02A;
+    }
+    .sticky-shadow {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+      background-color: white;
     }
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen flex flex-col font-sans">
 
-  <!-- Navbar -->
-  <header id="navbar" class="fixed w-full top-0 left-0 z-50 bg-transparent transition-all duration-300">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between h-20 px-6 md:px-12 bg-white bg-opacity-0">
-      <img src="logo.png" alt="Logo G2C" class="h-14 md:h-16 object-contain" />
-      <ul class="hidden md:flex space-x-10 font-semibold text-[#214980] text-lg">
-        <li><a href="index.html" class="hover:text-[#43B02A] transition duration-300">Accueil</a></li>
-        <li><a href="index.html" class="hover:text-[#43B02A] transition duration-300">Formations</a></li>
-        <li><a href="#contact" class="hover:text-[#43B02A] transition duration-300">Contact</a></li>
-      </ul>
-      <button id="mobileMenuBtn" class="md:hidden text-[#214980] focus:outline-none" aria-label="Ouvrir le menu mobile">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="#214980" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-        </svg>
-      </button>
-    </nav>
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden bg-white shadow-lg px-6 py-4 text-[#214980] font-semibold flex flex-col space-y-4">
-      <a href="index.html" class="hover:text-[#43B02A] transition duration-300">Accueil</a>
-      <a href="index.html" class="hover:text-[#43B02A] transition duration-300">Formations</a>
-      <a href="#contact" class="hover:text-[#43B02A] transition duration-300">Contact</a>
+  <!-- Nouvelle Navbar -->
+  <header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
+      <div class="flex justify-between items-center h-24">
+        <div class="flex items-center">
+          <img src="logo.png" class="h-28 md:h-32 w-auto" />
+        </div>
+        <!-- Menu principal -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
+        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
+       <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+        <a href="index.html" class="hover:text-teal-500">FORMATIONS</a>
+        <a href="#" class="hover:text-teal-500">CALENDRIER</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Main content -->
-  <main class="flex-grow flex flex-col justify-center items-center px-6 md:px-12 pt-32 pb-24 max-w-4xl mx-auto text-center">
-    <h1 class="text-5xl md:text-7xl font-extrabold text-[#214980] fade-slide-up" style="animation-delay: 0s;">
-      Test automatique avec <span class="text-[#43B02A]">Selenium</span>
-    </h1>
-    <p class="text-gray-600 mt-6 max-w-xl mx-auto text-lg md:text-xl fade-slide-up" style="animation-delay: 0.2s;">
-      Choisissez votre langage préféré pour découvrir nos parcours dédiés et booster votre carrière QA.
-    </p>
+  <!-- Ombre sticky au scroll -->
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("sticky-shadow");
+      } else {
+        navbar.classList.remove("sticky-shadow");
+      }
+    });
+  </script>
 
-    <div class="mt-16 flex flex-col sm:flex-row gap-10 justify-center fade-slide-up" style="animation-delay: 0.4s;">
-      <button
-        onclick="showPython()"
-        class="btn-glow bg-[#214980] text-white py-5 px-12 rounded-3xl font-semibold text-lg shadow-lg focus:ring-4 focus:ring-[#214980]/50 active:scale-95 transition-transform flex items-center justify-center gap-3 select-none"
-        aria-label="Afficher la formation Selenium avec Python"
-      >
-         Selenium avec Python
-      </button>
-      <button
-        onclick="showJava()"
-        class="btn-glow bg-[#43B02A] text-white py-5 px-12 rounded-3xl font-semibold text-lg shadow-lg focus:ring-4 focus:ring-[#43B02A]/50 active:scale-95 transition-transform flex items-center justify-center gap-3 select-none"
-        aria-label="Afficher la formation Selenium avec Java"
-      >
-         Selenium avec Java
-      </button>
+  <!-- Main -->
+  <main class="flex-grow flex flex-col justify-center items-center px-6 md:px-12 pt-48 pb-24 max-w-4xl mx-auto text-center">
+    <h1 class="text-5xl md:text-7xl font-extrabold text-[#214980] fade-slide-up">Test automatique avec <span class="text-[#43B02A]">Selenium</span></h1>
+    <p class="text-gray-600 mt-6 max-w-xl mx-auto text-lg md:text-xl fade-slide-up">Choisissez votre langage préféré pour découvrir nos parcours dédiés et booster votre carrière QA.</p>
+    
+    <div class="mt-16 flex flex-col sm:flex-row gap-10 justify-center fade-slide-up">
+      <button onclick="showPython()" class="btn-glow bg-[#214980] text-white py-5 px-12 rounded-3xl font-semibold text-lg shadow-lg">Selenium avec Python</button>
+      <button onclick="showJava()" class="btn-glow bg-[#43B02A] text-white py-5 px-12 rounded-3xl font-semibold text-lg shadow-lg">Selenium avec Java</button>
+    </div>
+
+    <div id="formationDetails" class="max-w-5xl mx-auto mt-14 bg-white rounded-3xl shadow-2xl p-10 space-y-8 border border-[#1E3A8A]/20 hidden">
+      <button id="closeDetails">&times;</button>
+      <h2 id="detailsTitle" class="text-4xl font-extrabold text-[#214980]"></h2>
+      <p id="detailsDescription" class="text-gray-700 text-lg"></p>
+      <ul id="detailsList" class="list-none space-y-2 text-left text-[#214980] text-xl font-semibold"></ul>
+      <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6">
+        <a id="downloadBtn" href="#" download class="bg-[#1E3A8A] text-white font-semibold px-10 py-4 rounded-full shadow-lg flex items-center justify-center">
+          <svg class="w-6 h-6 mr-3 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+          Télécharger le programme
+        </a>
+        <button id="contactBtn" class="bg-[#25D366] text-white font-semibold px-10 py-4 rounded-full shadow-lg flex items-center justify-center">
+          <svg class="w-6 h-6 mr-3 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0012 1a11.94 11.94 0 00-8.52 2.48A12.09 12.09 0 001 12c0 2.11.62 4.09 1.76 5.74L1 23l5.36-1.69A11.88 11.88 0 0012 23c5.42 0 9.86-4.47 9.86-10S17.42 3 12 3a11.7 11.7 0 00-1.66.13l-.01 0zM12 21a8.59 8.59 0 01-4.43-1.2l-.32-.19-3.17 1 1-3.12-.2-.32A8.58 8.58 0 013 12c0-4.75 4-8.6 9-8.6 4.87 0 8.84 3.81 8.84 8.5S16.87 20.9 12 21z"/></svg>
+          Contacter via WhatsApp
+        </button>
+      </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer id="contact" class="bg-[#214980] text-white text-center py-6 select-none">
-    <p class="text-sm md:text-base">&copy; 2025 CentreFormationPro. Tous droits réservés.</p>
-  </footer>
 
-  <!-- Scripts -->
   <script>
-    // Navbar shadow on scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 20){
-        navbar.classList.add('scrolled');
-        navbar.querySelector('nav').classList.add('bg-white', 'bg-opacity-100');
-      } else {
-        navbar.classList.remove('scrolled');
-        navbar.querySelector('nav').classList.remove('bg-white', 'bg-opacity-100');
+    const formations = {
+      python: {
+        title: "Selenium avec Python",
+        description: "Maîtrisez Selenium en Python pour automatiser vos tests avec efficacité et rapidité.",
+        points: [
+          "Introduction au langage de programmation Python compris",
+          "Comprendre l’architecture de la plate-forme open source Sélénium",
+          "Automatiser des propres projets de test Web à l’aide de Python et de Sélénium.",
+          "Apprendre et interpréter les résultats des tests fonctionnels",
+          "40 heures de formation (sessions week-end)"
+        ],
+        downloadLink: "Programme de formation selenium avec Python.pdf"
+      },
+      java: {
+        title: "Formation Selenium WebDriver avec Java +  préparation à la certification A4Q:",
+        description: "Apprenez à utiliser Selenium avec Java pour automatiser vos tests professionnels.",
+        points: [
+          "Pré-requis : des connaissances de base en java",
+          "Introduction à Selenium WebDriver et son intégration avec Java",
+          "Les concepts fondamentaux du test logiciel automatisé",
+          "Les bonnes pratiques pour la création et l'exécution de suites de tests automatisées",
+          "La préparation à l'examen de certification A4Q avec des conseils et des exemples pratiques",
+          "40 heures de formation (sessions week-end)"
+        ],
+        downloadLink: "Programme Formation Selenium Automation JAVA - A4Q.pdf"
       }
-    });
+    };
 
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    const details = document.getElementById('formationDetails');
+    const title = document.getElementById('detailsTitle');
+    const desc = document.getElementById('detailsDescription');
+    const list = document.getElementById('detailsList');
+    const closeBtn = document.getElementById('closeDetails');
 
-    // SweetAlert for Python
-    function showPython() {
-      Swal.fire({
-        title: ' Selenium avec Python',
-        html: `
-          <p>Formation pratique encadrée par un expert QA</p>
-          <p>Préparation à la certification internationale A4Q</p>
-          <p>35 heures réparties sur les <strong>weekends</strong></p>
-          <p>Format hybride : en ligne & présentiel à Tunis</p>
-          <p>Automatisation avec Python, librairies modernes et frameworks</p>
-          <p>Projets réels + accompagnement CV / LinkedIn</p>
-        `,
-        showCancelButton: true,
-        cancelButtonText: 'Fermer',
-        confirmButtonText: '📄 Télécharger le programme',
-        confirmButtonAriaLabel: 'Télécharger le programme Python',
-        background: '#f7f7f9',
-        width: 600,
-        customClass: { popup: 'rounded-3xl shadow-2xl' },
-        didOpen: () => {
-          const content = Swal.getHtmlContainer();
-          content.style.opacity = 0;
-          content.style.transition = 'opacity 0.4s ease';
-          setTimeout(() => { content.style.opacity = 1; }, 50);
-        },
-        preConfirm: () => {
-          // Télécharger PDF sans fermer la popup
-          const link = document.createElement('a');
-          link.href = 'programme_python.pdf';
-          link.download = 'programme_python.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          return false; // empêche la fermeture
-        }
-      });
+    function showDetails(data) {
+      title.textContent = data.title;
+      desc.textContent = data.description;
+      list.innerHTML = data.points.map(p => `<li>* ${p}</li>`).join('');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const contactBtn = document.getElementById('contactBtn');
+      downloadBtn.href = data.downloadLink;
+      downloadBtn.onclick = (e) => {
+        e.preventDefault();
+        Swal.fire({
+          icon: 'success',
+          title: 'Téléchargement en cours',
+          text: `Le programme ${data.title} va être téléchargé.`,
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        });
+        setTimeout(() => window.location.href = data.downloadLink, 2100);
+      };
+      contactBtn.onclick = () => {
+        Swal.fire({
+          icon: 'info',
+          title: 'Redirection WhatsApp',
+          text: 'Vous allez être redirigé vers WhatsApp.',
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        });
+        setTimeout(() => window.open('https://wa.me/21623580745', '_blank'), 2100);
+      };
+      details.classList.remove('hidden');
+      details.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // SweetAlert for Java
+    closeBtn.onclick = () => {
+      details.classList.add('hidden');
+    };
+
+    function showPython() {
+      showDetails(formations.python);
+    }
+
     function showJava() {
-      Swal.fire({
-        title: '☕ Selenium avec Java',
-        html: `
-          <p>Formation pratique encadrée par un expert QA</p>
-          <p>Préparation à la certification internationale A4Q</p>
-          <p>40 heures réparties sur les <strong>weekends</strong></p>
-          <p>Format hybride : en ligne & présentiel à Tunis</p>
-          <p>Projets réels + accompagnement CV / LinkedIn</p>
-        `,
-        showCancelButton: true,
-        cancelButtonText: 'Fermer',
-        confirmButtonText: '📄 Télécharger le programme',
-        confirmButtonAriaLabel: 'Télécharger le programme Java',
-        background: '#f7f7f9',
-        width: 600,
-        customClass: { popup: 'rounded-3xl shadow-2xl' },
-        didOpen: () => {
-          const content = Swal.getHtmlContainer();
-          content.style.opacity = 0;
-          content.style.transition = 'opacity 0.4s ease';
-          setTimeout(() => { content.style.opacity = 1; }, 50);
-        },
-        preConfirm: () => {
-          const link = document.createElement('a');
-          link.href = 'programme_java.pdf';
-          link.download = 'programme_java.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          return false;
-        }
-      });
+      showDetails(formations.java);
     }
   </script>
 
+
+<footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
+    
+    <!-- Bloc Logo & Intro -->
+    <div>
+ <img src="logo.png" class="h-28 md:h-36 w-auto" />      <p class="text-sm text-[#6B7280] mb-6">
+        Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
+      </p>
+
+      <div>
+        <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
+        <div class="flex items-center space-x-4">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
+            <i class="fab fa-facebook-f text-lg"></i>
+          </a>
+            <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
+            <i class="fab fa-linkedin-in text-lg"></i>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+        
+         
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc Menu -->
+    <div>
+      <h4 class="font-semibold mb-4">Menu</h4>
+      <ul class="space-y-2 text-sm text-[#1F2D3D]">
+        <li><a href="#formations" class="hover:text-[#214980]">Formations</a></li>
+        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>     
+        <li><a href="#a-propos" class="hover:text-[#214980]">À propos</a></li>
+      </ul>
+    </div>
+
+    <!-- Bloc Contact -->
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm text-[#1F2D3D]">
+        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745 </li>
+        <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (216) 70 621 226</li>
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/21623580745" target="_blank"
+     class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-lg hover:scale-105 transition">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+  </a>
+</footer>
 </body>
 </html>

@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
@@ -20,22 +21,60 @@
 </head>
 
 <style>
-   
-  </style>
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide {
+  animation: slide 25s linear infinite;
+}
+</style>
+
 <body class="bg-[#f7f7f9]">
 
 <!-- Navbar -->
-<nav class="bg-white shadow-md h-20 px-6 md:px-8 flex justify-between items-center relative overflow-visible">
-  <div class="flex items-center mt-2">
-    <img src="logo.png" alt="G2C Logo" class="h-12 md:h-40 w-auto object-contain" />
-  </div>
-  <div class="ml-auto flex space-x-6 text-sm md:text-base font-semibold">
-    <a href="index.html" class="text-[#214980] hover:underline">Accueil</a>
-    <a href="index.html" class="text-[#214980] hover:underline">Formations</a>
-    <a href="#contact" class="text-[#214980] hover:underline">Contact</a>
-  </div>
-</nav>
+<header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8"><br>
+    <div class="flex justify-between items-center h-24">
+      
+      <!-- Logo seul, plus grand -->
+      <div class="flex items-center">
+      <img src="logo.png" class="h-28 md:h-32 w-auto" />
+      </div>
 
+      <!-- Menu principal -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
+        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
+       <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+        <a href="index.html" class="hover:text-teal-500">FORMATIONS</a>
+        <a href="#" class="hover:text-teal-500">CALENDRIER</a>
+       
+      </nav>
+
+     
+    </div>
+  </div>
+</header>
+
+<!-- Ombre sticky au scroll -->
+<style>
+  .sticky-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.007);
+    background-color: white;
+  }
+</style>
+
+<!-- Script ombre au scroll -->
+<script>
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      navbar.classList.add("sticky-shadow");
+    } else {
+      navbar.classList.remove("sticky-shadow");
+    }
+  });
+</script>
 
 
 
@@ -95,20 +134,18 @@
     </p>
 
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-disc list-inside text-gray-800 text-lg animate__animated animate__fadeInUp animate__delay-1_5s">
-      <li>Introduction au test logiciel et à la norme ISTQB</li>
-      <li>Techniques de conception des cas de tests</li>
-      <li>Cycle de vie du test logiciel</li>
-      <li>Tests fonctionnels, non fonctionnels, régression</li>
+      <li>Une préparation ciblée  à l’examen ISTQB </li>
+      
       <li>Pratique avec Cucumber, Linux, Docker, Jenkins</li>
       <li>Exercices corrigés & simulations d’examen</li>
-      <li>Préparation et accompagnement à la certification</li>
+      <li> accompagnement à la certification</li>
       <li>32 heures de formation (sessions week-end)</li>
     </ul>
 
     <!-- Actions -->
     <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
       <a
-        href="programme_ISTQB.pdf"
+        href="programme ISTQB.pdf.pdf"
         download
         @click.prevent="
           Swal.fire({
@@ -123,7 +160,7 @@
               setTimeout(() => clearInterval(timerInterval), 2000);
             }
           });
-          setTimeout(() => window.location.href = 'programme_ISTQB.pdf', 2100);
+          setTimeout(() => window.location.href = 'programme ISTQB.pdf.pdf', 2100);
         "
         class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
       >
@@ -155,45 +192,50 @@
     </div>
   </div>
 </div>
+<section id="outils" class="py-20 bg-gray-100 overflow-hidden">
+  <div class="container mx-auto px-4">
+   <h2 class="text-4xl md:text-5xl font-extrabold text-[#214980] mb-4 animate-fade-in-up text-center">
+  Les outils que vous allez maîtriser
+</h2>
 
-
-     
-
-
-<!-- Section Outils utilisés -->
-<section class="w-full bg-[#f7f7f9] py-20 px-6 md:px-16 text-center">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-[#214980] mb-10">
-    Outils que vous allez maîtriser
-  </h2>
-
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-0.5s">
-      <img src="outils/images.png" alt="Cucumber" class="h-42 w-42 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-1s">
-      <img src="outils/Docker-Logo.png" alt="Docker" class="h-42 w-42 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-1.5s">
-      <img src="outils/Postman_(software).png" alt="Postman" class="h-42 w-42 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-2s">
-      <img src="outils/testlink.jpg" alt="TestLink" class="h-42 w-42 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-2.5s">
-      <img src="outils/jira.png" alt="Jira" class="h-32 w-32 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-3s">
-      <img src="outils/linux-logo-2.png" alt="Linux" class="h-32 w-32 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-3.5s">
-      <img src="outils/git-logo.png" alt="Git" class="h-32 w-32 object-contain" />
-    </div>
-    <div class="flex justify-center items-center bg-white p-6 rounded-xl shadow-md animate__animated animate__zoomIn animate__delay-4s">
-      <img src="outils/testng.png" alt="TestNG" class="h-32 w-32 object-contain" />
+<!-- Ligne décorative SVG verte -->
+<div class="flex justify-center mb-10 animate-fade-in-up">
+  <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
+  </svg>
+</div>
+    <!-- Slider infini -->
+    <div class="relative w-full overflow-hidden">
+      <div class="flex animate-slide gap-10 items-center w-max">
+        <!-- Répéter manuellement les logos pour boucle -->
+        <div class="flex gap-10">
+          <img src="outils/jira.png" alt="Jira" class="h-20 transition duration-300"/>
+          <img src="outils/git-logo.png" alt="Git" class="h-20 transition duration-300" />
+          <img src="outils/testlink.jpg" alt="TestLink" class="h-20 transition duration-300" />
+          <img src="outils/testng.png" alt="TestNG" class="h-20 transition duration-300"/>
+          <img src="outils/Docker-Logo.png" alt="Docker" class="h-20 transition duration-300"/>
+          <img src="outils/Postman_(software).png" alt="Postman" class="h-20 transition duration-300" />
+          <img src="outils/images.png" alt="Cucumber" class="h-20 transition duration-300" />
+          <img src="outils/linux-logo-2.png" alt="Linux" class="h-20 transition duration-300" />
+        </div>
+        <!-- Deuxième fois pour boucle -->
+        <div class="flex gap-10">
+          <img src="outils/jira.png" alt="Jira" class="h-20 transition duration-300" />
+          <img src="outils/git-logo.png" alt="Git" class="h-20 transition duration-300" />
+          <img src="outils/testlink.jpg" alt="TestLink" class="h-20 transition duration-300" />
+          <img src="outils/testng.png" alt="TestNG" class="h-20 transition duration-300"/>
+          <img src="outils/Docker-Logo.png" alt="Docker" class="h-20 transition duration-300" />
+          <img src="outils/Postman_(software).png" alt="Postman" class="h-20 transition duration-300" />
+          <img src="outils/images.png" alt="Cucumber" class="h-20 transition duration-300" />
+          <img src="outils/linux-logo-2.png" alt="Linux" class="h-20 transition duration-300" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+
+<br><br>
 <!-- Section Témoignage -->
 <section class="w-full bg-[#f0f4fa] py-20 px-6 md:px-16 text-center font-sans">
   <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-12">
@@ -316,66 +358,71 @@
 
 
 
-<!-- Alpine.js CDN -->
 
 
-<section class="w-full bg-[#f7f7f9] py-20 px-6 md:px-16" x-data="{ hovered: null }">
-  <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-12 text-center">Pourquoi nous choisir ?</h2>
 
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-10">
-    <!-- Colonne de Questions -->
-    <div class="flex flex-col gap-6 w-full md:w-1/2">
-      <div @mouseenter="hovered = 1" @mouseleave="hovered = null" class="bg-white p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition border-l-4" :class="hovered === 1 ? 'border-[#214980]' : 'border-transparent'">
-        <h3 class="text-lg font-semibold text-[#214980]">📘 Certification reconnue</h3>
-        <p class="text-sm text-gray-600">Passez ISTQB avec une base solide.</p>
-      </div>
 
-      <div @mouseenter="hovered = 2" @mouseleave="hovered = null" class="bg-white p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition border-l-4" :class="hovered === 2 ? 'border-[#214980]' : 'border-transparent'">
-        <h3 class="text-lg font-semibold text-[#214980]">💡 Cours pratiques</h3>
-        <p class="text-sm text-gray-600">Apprentissage basé sur des cas réels.</p>
-      </div>
+  
 
-      <div @mouseenter="hovered = 3" @mouseleave="hovered = null" class="bg-white p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition border-l-4" :class="hovered === 3 ? 'border-[#214980]' : 'border-transparent'">
-        <h3 class="text-lg font-semibold text-[#214980]">🕒 Flexibilité</h3>
-        <p class="text-sm text-gray-600">Horaires adaptés aux professionnels.</p>
-      </div>
 
-      <div @mouseenter="hovered = 4" @mouseleave="hovered = null" class="bg-white p-6 rounded-xl shadow cursor-pointer hover:shadow-lg transition border-l-4" :class="hovered === 4 ? 'border-[#214980]' : 'border-transparent'">
-        <h3 class="text-lg font-semibold text-[#214980]">🧑‍🏫 Coaching personnalisé</h3>
-        <p class="text-sm text-gray-600">Un accompagnement individuel.</p>
+  
+
+<footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
+    
+    <!-- Bloc Logo & Intro -->
+    <div>
+ <img src="logo.png" class="h-28 md:h-36 w-auto" />      <p class="text-sm text-[#6B7280] mb-6">
+        Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
+      </p>
+
+      <div>
+        <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
+        <div class="flex items-center space-x-4">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
+            <i class="fab fa-facebook-f text-lg"></i>
+          </a>
+            <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
+            <i class="fab fa-linkedin-in text-lg"></i>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+        
+         
+        </div>
       </div>
     </div>
 
-    <!-- Info box à droite -->
-    <div class="w-full md:w-1/2 bg-white p-8 rounded-xl shadow-lg transition duration-300 min-h-[200px] relative">
-      <template x-if="hovered === 1">
-        <p class="text-[#214980] text-lg font-medium">🌍 Notre formation est alignée avec les standards internationaux de l'ISTQB.</p>
-      </template>
-      <template x-if="hovered === 2">
-        <p class="text-[#214980] text-lg font-medium">🔧 Travaux pratiques sur Jira, TestLink, Git, etc.</p>
-      </template>
-      <template x-if="hovered === 3">
-        <p class="text-[#214980] text-lg font-medium">📅 Formation les weekends ou en soirée.</p>
-      </template>
-      <template x-if="hovered === 4">
-        <p class="text-[#214980] text-lg font-medium">👨‍🏫 Suivi personnel de chaque participant par un formateur expert.</p>
-      </template>
-      <template x-if="hovered === null">
-        <p class="text-gray-500 text-md">Survolez une question pour voir plus d'information.</p>
-      </template>
+    <!-- Bloc Menu -->
+    <div>
+      <h4 class="font-semibold mb-4">Menu</h4>
+      <ul class="space-y-2 text-sm text-[#1F2D3D]">
+        <li><a href="#formations" class="hover:text-[#214980]">Formations</a></li>
+        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>     
+        <li><a href="#a-propos" class="hover:text-[#214980]">À propos</a></li>
+      </ul>
+    </div>
+
+    <!-- Bloc Contact -->
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm text-[#1F2D3D]">
+        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745 </li>
+        <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (216) 70 621 226</li>
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
+      </ul>
     </div>
   </div>
-</section>
 
-
-  
-
-  
-
-
-<!-- Footer -->
-<footer id="contact" class="bg-[#214980] text-white text-center py-6">
-  <p>© 2025 CentreFormationPro. Tous droits réservés.</p>
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/21653985007" target="_blank"
+     class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-lg hover:scale-105 transition">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+  </a>
 </footer>
 
 </body>

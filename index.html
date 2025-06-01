@@ -5,22 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cabinet Coaching & Consulting</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body class="bg-[#f7f7f9] text-gray-800">
+<!-- Navbar -->
+<header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8"><br>
+    <div class="flex justify-between items-center h-24">
+      
+      <!-- Logo seul, plus grand -->
+      <div class="flex items-center">
+      <img src="logo.png" class="h-28 md:h-32 w-auto" />
+      </div>
 
-<!-- Navbar responsive -->
-<nav class="bg-white shadow-md px-4 py-2 md:py-4 flex justify-between items-center">
-  <div class="flex items-center">
-   <img src="logo.png" alt="G2C Logo" class="h-20 md:h-32 w-auto object-contain" />
+      <!-- Menu principal -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
+        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
+       <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+        <a href="#formations" class="hover:text-teal-500">FORMATIONS</a>
+        <a href="#" class="hover:text-teal-500">CALENDRIER</a>
+       
+      </nav>
 
+     
+    </div>
   </div>
-  <div class="hidden md:flex gap-6 font-semibold text-[#214980]">
-    <a href="index.html" class="hover:underline">Accueil</a>
-    <a href="index.html" class="hover:underline">Formations</a>
-    <a href="#contact" class="hover:underline">Contact</a>
-  </div>
-</nav>
-<br><br><br>
+</header>
+
+<!-- Ombre sticky au scroll -->
+<style>
+  .sticky-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.007);
+    background-color: white;
+  }
+</style>
+
+<!-- Script ombre au scroll -->
+<script>
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      navbar.classList.add("sticky-shadow");
+    } else {
+      navbar.classList.remove("sticky-shadow");
+    }
+  });
+</script>
+
+
+
+<br><br><br><br><br><br>
 <!-- Héros / Bannière -->
 <section class="bg-[#082aaa] text-white py-12 px-4 md:px-12 text-center rounded-xl max-w-7xl mx-auto">
   <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
@@ -151,7 +186,7 @@
 
 <section id="faq" class="bg-white py-20 px-6 md:px-16">
   <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-10">FAQ - Questions fréquentes</h2>
+    <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-10">Questions fréquentes</h2>
     <div class="flex justify-center mb-10 animate-fade-in-up">
       <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
@@ -250,32 +285,68 @@
 
 
   
-   
-
-
-
-
-
-   
   
 
+<footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
+    
+    <!-- Bloc Logo & Intro -->
+    <div>
+ <img src="logo.png" class="h-28 md:h-36 w-auto" />      <p class="text-sm text-[#6B7280] mb-6">
+        Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
+      </p>
 
+      <div>
+        <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
+        <div class="flex items-center space-x-4">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
+            <i class="fab fa-facebook-f text-lg"></i>
+          </a>
+            <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
+            <i class="fab fa-linkedin-in text-lg"></i>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+        
+         
+        </div>
+      </div>
+    </div>
 
+    <!-- Bloc Menu -->
+    <div>
+      <h4 class="font-semibold mb-4">Menu</h4>
+      <ul class="space-y-2 text-sm text-[#1F2D3D]">
+        <li><a href="#formations" class="hover:text-[#214980]">Formations</a></li>
+        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>     
+        <li><a href="#a-propos" class="hover:text-[#214980]">À propos</a></li>
+      </ul>
+    </div>
 
+    <!-- Bloc Contact -->
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm text-[#1F2D3D]">
+        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745 </li>
+        <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (216) 70 621 226</li>
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
+      </ul>
+    </div>
+  </div>
 
-   
-
-
-
-
-
-
-
-
-<!-- Footer -->
-<footer id="contact" class="bg-[#214980] text-white text-center py-6 mt-12">
-  <p>© 2025 CentreFormationPro. Tous droits réservés.</p>
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/21653985007" target="_blank"
+     class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-lg hover:scale-105 transition">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+  </a>
 </footer>
 
+
+     
+  
 </body>
 </html>
