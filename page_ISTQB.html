@@ -34,45 +34,39 @@
 
 <!-- Navbar -->
 <header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8"><br>
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
     <div class="flex justify-between items-center h-24">
-      
-      <!-- Logo seul, plus grand -->
+
+      <!-- Logo -->
       <div class="flex items-center">
-      <img src="logo.png" class="h-28 md:h-32 w-auto" />
+        <img src="logo.png" class="h-20 w-auto" />
       </div>
 
+      <!-- Bouton Hamburger (visible sur mobile) -->
+      <button id="menu-btn" class="md:hidden text-[#214980] focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
       <!-- Menu principal -->
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
+      <nav id="menu" class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-sm font-semibold text-[#214980]">
         <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
-       <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+        <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
         <a href="index.html" class="hover:text-teal-500">FORMATIONS</a>
         <a href="#" class="hover:text-teal-500">CALENDRIER</a>
-       
       </nav>
 
-     
     </div>
   </div>
 </header>
-
-<!-- Ombre sticky au scroll -->
-<style>
-  .sticky-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.007);
-    background-color: white;
-  }
-</style>
-
-<!-- Script ombre au scroll -->
 <script>
-  const navbar = document.getElementById("navbar");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 10) {
-      navbar.classList.add("sticky-shadow");
-    } else {
-      navbar.classList.remove("sticky-shadow");
-    }
+  const menuBtn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
   });
 </script>
 
@@ -356,34 +350,24 @@
 </script>
 
 
-
-
-
-
-
-
-  
-
-
-  
-
 <footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
-    
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
+
     <!-- Bloc Logo & Intro -->
-    <div>
- <img src="logo.png" class="h-28 md:h-36 w-auto" />      <p class="text-sm text-[#6B7280] mb-6">
+    <div class="flex flex-col items-center md:items-start">
+      <img src="logo.png" class="h-28 md:h-36 w-auto mb-4" />
+      <p class="text-sm text-[#6B7280] mb-6 max-w-xs">
         Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
       </p>
 
       <div>
         <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
-        <div class="flex items-center space-x-4">
+        <div class="flex justify-center md:justify-start items-center space-x-4">
           <!-- Facebook -->
           <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
             <i class="fab fa-facebook-f text-lg"></i>
           </a>
-            <!-- LinkedIn -->
+          <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
             <i class="fab fa-linkedin-in text-lg"></i>
           </a>
@@ -391,27 +375,25 @@
           <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
             <i class="fab fa-instagram text-lg"></i>
           </a>
-        
-         
         </div>
       </div>
     </div>
 
     <!-- Bloc Menu -->
-    <div>
+    <div class="flex flex-col items-center md:items-start">
       <h4 class="font-semibold mb-4">Menu</h4>
       <ul class="space-y-2 text-sm text-[#1F2D3D]">
         <li><a href="#formations" class="hover:text-[#214980]">Formations</a></li>
-        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>     
+        <li><a href="#temoignages" class="hover:text-[#214980]">Témoignages</a></li>
         <li><a href="#a-propos" class="hover:text-[#214980]">À propos</a></li>
       </ul>
     </div>
 
     <!-- Bloc Contact -->
-    <div>
+    <div class="flex flex-col items-center md:items-start">
       <h4 class="font-semibold mb-4">Contact</h4>
-      <ul class="space-y-3 text-sm text-[#1F2D3D]">
-        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745 </li>
+      <ul class="space-y-3 text-sm text-[#1F2D3D] max-w-xs">
+        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (216) 23 580 745</li>
         <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (216) 70 621 226</li>
         <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
       </ul>
@@ -419,11 +401,12 @@
   </div>
 
   <!-- WhatsApp floating button -->
-  <a href="https://wa.me/21653985007" target="_blank"
+  <a href="https://wa.me/21623580745" target="_blank"
      class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-lg hover:scale-105 transition">
     <i class="fab fa-whatsapp text-white text-2xl"></i>
   </a>
 </footer>
+
 
 </body>
 </html>
