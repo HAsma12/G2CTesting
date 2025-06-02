@@ -47,7 +47,7 @@
         <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
         <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
         <a href="index.html" class="hover:text-teal-500">FORMATIONS</a>
-        
+       
       </nav>
 
       <!-- Menu mobile button -->
@@ -66,7 +66,6 @@
       <a href="index.html" class="block">ACCEUIL</a>
       <a href="index.html" class="block">QUI SOMMES-NOUS</a>
       <a href="index.html" class="block">FORMATIONS</a>
-    
     </nav>
   </div>
 </header>
@@ -116,11 +115,11 @@
     <h1
       class="text-5xl md:text-6xl font-extrabold text-[#1E3A8A] tracking-tight animate__animated animate__bounceInDown"
     >
-      Test Manuel – Préparation à la Certification <span class="text-[#43B02A]">ISTQB</span>
+        ISTQB Advanced Level – 
+    <span class="text-[#43B02A]"> Test Manager</span>
     </h1>
     <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-      Une formation essentielle pour étudiants, professionnels ou personnes en reconversion souhaitant maîtriser les fondamentaux du test logiciel.
-    </p>
+Une formation avancée destinée aux professionnels disposant de connaissances ou d’une certification ISTQB Foundation, souhaitant évoluer vers un rôle de Test Manager.    </p>
   </div>
 
   <!-- Bouton toggle -->
@@ -154,32 +153,36 @@
     style="display:none;"
   >
     <h2 class="text-4xl font-bold text-[#1E3A8A] animate__animated animate__fadeInLeft">
-      Détails de la formation ISTQB
+      Détails de la formation Test Manager
     </h2>
 
     <p class="text-gray-700 text-lg leading-relaxed animate__animated animate__fadeInUp animate__delay-1s">
-      Cette formation allie théorie et pratique pour une préparation optimale à l’examen officiel ISTQB. Elle inclut des cas concrets, outils professionnels et accompagnement personnalisé.
-    </p>
+Avoir le niveau ISTQB Foundation et être certifié ISTQB niveau Foundation pour pouvoir
+passer l'examen .  </p>
 
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-disc list-inside text-gray-800 text-lg animate__animated animate__fadeInUp animate__delay-1_5s">
-      <li>Une préparation ciblée  à l’examen ISTQB </li>
+      <li>Définir les objectifs de test globaux et la stratégie pour les systèmes à tester</li>
       
-      <li>Pratique avec Cucumber, Linux, Docker, Jenkins</li>
-      <li>Exercices corrigés & simulations d’examen</li>
-      <li> accompagnement à la certification</li>
-      <li>32 heures de formation (sessions week-end)</li>
+      <li>Décrire et organiser les activités nécessaires</li>
+       <li>Se préparer et passer l'examen de certification ISTQB avancé "Test Manager"</li>
+        <li>Exercices corrigés & simulations d’examen</li>
+         <li>Connaître les principaux outils pour la mise en place des tests</li>
+
+      <li>Amélioration des processus de tests</li>
+      <li>35 heures de formation (sessions week-end)</li>
     </ul>
 
     <!-- Actions -->
     <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
+   
       <a
-  href="programme ISTQB.pdf.pdf"
+  href="outils/Test manager.pdf"
   download
   @click.prevent="
     Swal.fire({
       icon: 'success',
       title: 'Téléchargement en cours',
-      text: 'Le programme ISTQB va être téléchargé.',
+      text: 'Le programme Test Manager va être téléchargé.',
       timer: 2000,
       showConfirmButton: false,
       timerProgressBar: true,
@@ -188,7 +191,7 @@
         setTimeout(() => clearInterval(timerInterval), 2000);
       }
     });
-    setTimeout(() => window.open('programme ISTQB.pdf.pdf', '_blank'), 2100);
+    setTimeout(() => window.open('outils/Test manager.pdf', '_blank'), 2100);
   "
   class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
 >
@@ -205,7 +208,6 @@
   </svg>
   Télécharger le programme
 </a>
-
       <button
         @click="
           Swal.fire({
@@ -228,168 +230,9 @@
     </div>
   </div>
 </div>
-<section id="outils" class="py-20 bg-gray-100 overflow-hidden">
-  <div class="container mx-auto px-4">
-   <h2 class="text-4xl md:text-5xl font-extrabold text-[#214980] mb-4 animate-fade-in-up text-center">
-  Les outils que vous allez maîtriser
-</h2>
-
-<!-- Ligne décorative SVG verte -->
-<div class="flex justify-center mb-10 animate-fade-in-up">
-  <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
-  </svg>
-</div>
-    <!-- Slider infini -->
-    <div class="relative w-full overflow-hidden">
-      <div class="flex animate-slide gap-10 items-center w-max">
-        <!-- Répéter manuellement les logos pour boucle -->
-        <div class="flex gap-10">
-          <img src="outils/jira.png" alt="Jira" class="h-20 transition duration-300"/>
-          <img src="outils/git-logo.png" alt="Git" class="h-20 transition duration-300" />
-          <img src="outils/testlink.jpg" alt="TestLink" class="h-20 transition duration-300" />
-          <img src="outils/testng.png" alt="TestNG" class="h-20 transition duration-300"/>
-          <img src="outils/Docker-Logo.png" alt="Docker" class="h-20 transition duration-300"/>
-          <img src="outils/Postman_(software).png" alt="Postman" class="h-20 transition duration-300" />
-          <img src="outils/images.png" alt="Cucumber" class="h-20 transition duration-300" />
-          <img src="outils/linux-logo-2.png" alt="Linux" class="h-20 transition duration-300" />
-        </div>
-        <!-- Deuxième fois pour boucle -->
-        <div class="flex gap-10">
-          <img src="outils/jira.png" alt="Jira" class="h-20 transition duration-300" />
-          <img src="outils/git-logo.png" alt="Git" class="h-20 transition duration-300" />
-          <img src="outils/testlink.jpg" alt="TestLink" class="h-20 transition duration-300" />
-          <img src="outils/testng.png" alt="TestNG" class="h-20 transition duration-300"/>
-          <img src="outils/Docker-Logo.png" alt="Docker" class="h-20 transition duration-300" />
-          <img src="outils/Postman_(software).png" alt="Postman" class="h-20 transition duration-300" />
-          <img src="outils/images.png" alt="Cucumber" class="h-20 transition duration-300" />
-          <img src="outils/linux-logo-2.png" alt="Linux" class="h-20 transition duration-300" />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
-<br><br>
-<!-- Section Témoignage -->
-<section class="w-full bg-[#f0f4fa] py-20 px-6 md:px-16 text-center font-sans">
-  <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-12">
-    Témoignages de nos apprenants
-  </h2>
-<br><br>
-  <!-- Carousel Container -->
-  <div class="relative max-w-3xl mx-auto">
-    <!-- Testimonial Cards Wrapper -->
-    <div class="testimonial-wrapper">
-      <!-- Testimonial 1 -->
-      <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Tmaryem.jfif" alt="Maryem B'k" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Maryem B'k</p>
-          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-          “J'ai beaucoup apprécié la formation de testeur de logiciel au sein de G2C. Le rythme des cours, le contenu et les supports étaient excellents. Avec le formateur Walid Hnaien, l’ambiance était très motivante ❤️❤️. J’ai adoré mon expérience avec G2C et je recommanderais sans hésitation !”
-        </p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div>
-        <!-- Témoinage 2 -->
-      <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Yasmine.jpeg" alt="yassmine Grati" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Yasmine Grati</p>
-          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-          “Je recommande vivement le centre de formation G2C pour leur engagement envers la qualité de la formation et l'expertise de Mr. Walid, notre formateur tout au long de la préparation à la certification ISTQB. 🥰”
-        </p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div>
-       <!-- témoinage 3 -->
-       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Ibtissem.jpeg" alt="ibtissem boudhina" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Ibtissem Boudhina</p>
-          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-        “Très satisfaite de ma formation chez vous. Le formateur est professionnel et à l’écoute. Le contenu est clair, bien structuré, et adapté au marché du travail. L’ambiance est agréable. Je recommande vivement ce centre pour toute personne souhaitant se former efficacement.❤️❤️!”
-</p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div>
 
-
-       <!-- témoinage 3 -->
-       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Omar.jpeg" alt="omar marabou" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Omar Marabou</p>
-          <p class="text-sm text-gray-500">Client certifié ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-        “J'ai intégré la formation chez G2C en 2024 c'etait une expérience très agréable, très riche au niveau contenu y avait une ambiance très amicable .Je suis très satisfait et je vous conseille d'intégrer le centre de formation G2C ”
-</p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div> 
-      <!-- Add more testimonials here if needed -->
-    </div>
-
-    <!-- Navigation Arrows -->
-    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-[#214980] border border-[#214980] hover:bg-[#214980] hover:text-white transition rounded-full w-10 h-10 shadow-md">
-      ←
-    </button>
-    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-[#214980] border border-[#214980] hover:bg-[#214980] hover:text-white transition rounded-full w-10 h-10 shadow-md">
-      →
-    </button>
-  </div>
-</section>
-
-<!-- Add this JavaScript at the bottom of your <body> -->
-<script>
-  const testimonialWrapper = document.querySelector('.testimonial-wrapper');
-  const testimonials = document.querySelectorAll('.testimonial-card');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let currentIndex = 0;
-
-  // Initially show the first testimonial
-  testimonials.forEach((testimonial, index) => {
-    testimonial.style.display = index === 0 ? 'block' : 'none';
-  });
-
-  // Next button click
-  nextBtn.addEventListener('click', () => {
-    testimonials[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    testimonials[currentIndex].style.display = 'block';
-  });
-
-  // Previous button click
-  prevBtn.addEventListener('click', () => {
-    testimonials[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-    testimonials[currentIndex].style.display = 'block';
-  });
-
-
-</script>
 
 
 <footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
@@ -426,6 +269,7 @@
       <h4 class="font-semibold mb-4">Menu</h4>
       <ul class="space-y-2 text-sm text-[#1F2D3D]">
         <li><a href="index.html" class="hover:text-[#214980]">Formations</a></li>
+
         <li><a href="index.html" class="hover:text-[#214980]">À propos</a></li>
       </ul>
     </div>
