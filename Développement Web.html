@@ -19,10 +19,8 @@
 
 <!-- Navbar -->
 <header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
-
   <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
     <div class="flex justify-between items-center h-24">
-
       <!-- Logo -->
       <div class="flex items-center">
         <img src="logo.png" class="h-24 md:h-32 w-auto" />
@@ -30,46 +28,29 @@
 
       <!-- Menu desktop -->
       <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
-<a href="acceuil1.html" class="custom-green">ACCEUIL</a>
+        <a href="acceuil1.html" class="custom-green">ACCEUIL</a>
         <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
 
-        
-  <!-- FORMATIONS Dropdown -->
-<div class="relative inline-block" x-data="{ open: false }" 
-     @mouseenter="open = true" 
-     @mouseleave="open = false"
->
-  <button class="hover:text-teal-500 inline-flex items-center focus:outline-none">
-    FORMATIONS
-    <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-      <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
-    </svg>
-  </button>
-
-  <div
-    x-show="open"
-    x-transition:enter="transition ease-out duration-200"
-    x-transition:enter-start="opacity-0 transform -translate-y-2"
-    x-transition:enter-end="opacity-100 transform translate-y-0"
-    x-transition:leave="transition ease-in duration-150"
-    x-transition:leave-start="opacity-100 transform translate-y-0"
-    x-transition:leave-end="opacity-0 transform -translate-y-2"
-    class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50"
-    style="display: none;"
-  >
-    <a href="Développement Web.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Développement web  & Full Stack</a>
-    <a href="#testing" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Tests logiciels</a>
-    <a href="project manager.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Gestion de projet</a>
-    <a href="SAP ERP.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">ERP SAP</a>
-    <a href="Digital.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Marketing Digital</a>
-    <a href="Analyse de données.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Analyse de données</a>
-    <a href="Réseaux.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Réseaux & Systèmes</a>
-  </div>
-</div>
-
- <a href="" class="hover:text-teal-500">Contact</a>
-  
+        <!-- FORMATIONS Dropdown -->
+        <div class="relative">
+          <button class="hover:text-teal-500 inline-flex items-center focus:outline-none" id="desktopDropdownBtn">
+            FORMATIONS
+            <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+              <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
+            </svg>
+          </button>
+          <div id="desktopDropdown" class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50 hidden">
+            <a href="Développement Web.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Développement web & Full Stack</a>
+            <a href="#testing" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Tests logiciels</a>
+            <a href="project manager.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Gestion de projet</a>
+            <a href="SAP ERP.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">ERP SAP</a>
+            <a href="Digital.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Marketing Digital</a>
+            <a href="Analyse de données.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Analyse de données</a>
+            <a href="Réseaux.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Réseaux & Systèmes</a>
+          </div>
         </div>
+
+        <a href="" class="hover:text-teal-500">Contact</a>
       </nav>
 
       <!-- Menu mobile button -->
@@ -80,7 +61,7 @@
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
+  <div id="mobileMenu" class="hidden md:hidden absolute top-full right-0 w-64 bg-white z-50 p-6 shadow-lg rounded-b-lg">
     <div class="flex justify-end">
       <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
     </div>
@@ -112,39 +93,35 @@
   </div>
 </header>
 
-
-
-
-<!-- Sticky navbar shadow on scroll -->
-<style>
-  .sticky-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-    background-color: white;
-  }
-</style>
 <script>
-  // Sélection des éléments
+  // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const closeMenu = document.getElementById('closeMenu');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
   const mobileDropdown = document.getElementById('mobileDropdown');
 
-  // Ouvrir le menu mobile
   menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.toggle('hidden');
   });
 
-  // Fermer le menu mobile
   closeMenu.addEventListener('click', () => {
     mobileMenu.classList.add('hidden');
   });
 
-  // Toggle dropdown mobile
   mobileDropdownBtn.addEventListener('click', () => {
     mobileDropdown.classList.toggle('hidden');
   });
+
+  // Optional: close mobile menu on clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      mobileDropdown.classList.add('hidden');
+    }
+  });
 </script>
+
 
 
 
