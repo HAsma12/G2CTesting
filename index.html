@@ -79,62 +79,62 @@
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
-    <div class="flex justify-end">
-      <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
-    </div>
-
-    <!-- MENU MOBILE -->
-    <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
-      <a href="index.html" class="block">ACCEUIL</a>
-      <a href="#a-propos" class="block">QUI SOMMES-NOUS</a>
-
-      <!-- Dropdown Formations -->
-      <div>
-        <button id="mobileDropdownBtn" class="w-full flex justify-between items-center">
-          FORMATIONS
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M6 9l6 6 6-6"/>
-          </svg>
-        </button>
-        <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
-          <a href="#gestion-projet" class="block">Gestion de projet </a>
-          <a href="#agile" class="block">Méthodes Agiles </a>
-          <a href="#testing" class="block">Tests logiciels</a>
-          <a href="#bi" class="block">Business Intelligence </a>
-          <a href="#dev" class="block">Développement Web </a>
-          <a href="#sap" class="block">SAP ERP</a>
-          <a href="#reseaux" class="block">Réseaux & Systèmes </a>
-        </div>
-      </div>
-    </nav>
+<!-- Mobile menu -->
+<div id="mobileMenu" class="hidden md:hidden absolute top-full right-0 mt-2 w-64 bg-white z-50 p-4 shadow-lg rounded-lg">
+  <div class="flex justify-end">
+    <button id="closeMenu" class="text-2xl text-[#214980]">&times;</button>
   </div>
+
+  <!-- MENU MOBILE -->
+  <nav class="mt-4 space-y-2 text-[#214980] font-medium text-sm">
+    <a href="index.html" class="block hover:bg-teal-100 px-2 py-1 rounded">ACCEUIL</a>
+    <a href="#a-propos" class="block hover:bg-teal-100 px-2 py-1 rounded">QUI SOMMES-NOUS</a>
+
+    <!-- Dropdown Formations -->
+    <div>
+      <button id="mobileDropdownBtn" class="w-full flex justify-between items-center px-2 py-1 rounded hover:bg-teal-100">
+        FORMATIONS
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+      <div id="mobileDropdown" class="hidden pl-2 mt-2 space-y-1 text-sm">
+        <a href="Développement Web.html" class="block px-2 py-1 hover:bg-teal-100 rounded">Développement web & Full Stack</a>
+        <a href="#testing" class="block px-2 py-1 hover:bg-teal-100 rounded">Tests logiciels</a>
+        <a href="project manager.html" class="block px-2 py-1 hover:bg-teal-100 rounded">Gestion de projet</a>
+        <a href="SAP ERP.html" class="block px-2 py-1 hover:bg-teal-100 rounded">ERP SAP</a>
+        <a href="Digital.html" class="block px-2 py-1 hover:bg-teal-100 rounded">Marketing Digital</a>
+        <a href="Analyse de données.html" class="block px-2 py-1 hover:bg-teal-100 rounded">Analyse de données</a>
+        <a href="Réseaux.html" class="block px-2 py-1 hover:bg-teal-100 rounded">Réseaux & Systèmes</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- JS pour ouvrir/fermer le menu mobile -->
+
 </header>
 
-
 <script>
-  // Sélection des éléments
-  const menuBtn = document.getElementById('menuBtn');
-  const closeMenu = document.getElementById('closeMenu');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
-  const mobileDropdown = document.getElementById('mobileDropdown');
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
+const mobileDropdown = document.getElementById('mobileDropdown');
 
-  // Ouvrir le menu mobile
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('hidden');
-  });
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
 
-  // Fermer le menu mobile
-  closeMenu.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-  });
+closeMenu.addEventListener('click', () => {
+  mobileMenu.classList.add('hidden');
+});
 
-  // Toggle dropdown mobile
-  mobileDropdownBtn.addEventListener('click', () => {
-    mobileDropdown.classList.toggle('hidden');
-  });
+mobileDropdownBtn.addEventListener('click', () => {
+  mobileDropdown.classList.toggle('hidden');
+});
 </script>
+
 
 
 <section id="accueil" class="hero">
