@@ -1,254 +1,553 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Cabinet Coaching - Accueil</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#003399',
-          secondary: '#b7b5c2',
-        },
-        transitionProperty: {
-          'height-opacity': 'max-height, opacity',
-        }
-      },
-    },
-  }
-</script>
-<style>
-  /* Dropdown animation */
-  .dropdown-menu {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-  }
-  .dropdown-menu.open {
-    max-height: 500px;
-    opacity: 1;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Centre de Formation</title>
+  <link rel="stylesheet" href="acceuil.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  /* Navbar sticky background on scroll */
-  header.scrolled {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  /* Rotate arrow when open */
-  .rotate-180 {
-    transform: rotate(180deg);
-    transition: transform 0.3s ease;
-  }
-</style>
 </head>
-<body class="bg-white font-sans text-gray-900">
+<body>
+
 
 <!-- Navbar -->
-<header id="navbar" class="fixed w-full top-0 left-0 z-50 bg-transparent">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 transition-colors duration-300">
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 select-none">
-      <img src="logo.png" alt="Logo Cabinet" class="h-10 w-10 object-cover rounded-full" />
-      <span class="text-primary font-extrabold text-2xl tracking-wide">Cabinet Coaching</span>
-    </a>
+<header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-10 font-semibold text-gray-700">
-      <div class="relative">
-        <button id="formationsBtn" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-primary hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-primary transition">
-          Formations
-          <svg id="arrowIcon" class="w-5 h-5 text-primary transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-        </button>
-        <ul id="formationsDropdown" class="dropdown-menu absolute left-0 mt-2 w-60 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 text-gray-700 font-normal">
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">Gestion de Projet (PMP, MS Project)</a></li>
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">Méthodes Agiles (SCRUM, PSM, PSPO)</a></li>
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">Tests Logiciels (ISTQB, Selenium)</a></li>
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">Business Intelligence / Power BI / Big Data</a></li>
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">Développement Web & Full Stack</a></li>
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">ERP SAP (FICO, MM, SD)</a></li>
-          <li><a href="#" class="block px-5 py-3 hover:bg-primary hover:text-white rounded-lg transition">Réseaux & Systèmes (Cisco, Windows Server)</a></li>
-        </ul>
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
+    <div class="flex justify-between items-center h-24">
+
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="logo.png" class="h-24 md:h-32 w-auto" />
       </div>
-      <a href="#about" class="hover:text-primary transition">À propos</a>
-      <a href="#contact" class="hover:text-primary transition">Contact</a>
-    </nav>
 
-    <!-- Mobile menu button -->
-    <button id="mobileMenuBtn" aria-label="Ouvrir menu" aria-expanded="false" class="md:hidden text-primary focus:outline-none focus:ring-2 focus:ring-primary">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+      <!-- Menu desktop -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
+<a href="acceuil1.html" class="custom-green">ACCEUIL</a>
+        <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+
+        
+  <!-- FORMATIONS Dropdown -->
+<div class="relative inline-block" x-data="{ open: false }" 
+     @mouseenter="open = true" 
+     @mouseleave="open = false"
+>
+  <button class="hover:text-teal-500 inline-flex items-center focus:outline-none">
+    FORMATIONS
+    <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+      <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
+    </svg>
+  </button>
+
+  <div
+    x-show="open"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 transform -translate-y-2"
+    x-transition:enter-end="opacity-100 transform translate-y-0"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100 transform translate-y-0"
+    x-transition:leave-end="opacity-0 transform -translate-y-2"
+    class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50"
+    style="display: none;"
+  >
+    <a href="Développement Web.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Développement web  & Full Stack</a>
+    <a href="#testing" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Tests logiciels</a>
+    <a href="project manager.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Gestion de projet</a>
+    <a href="SAP ERP.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">ERP SAP</a>
+    <a href="Digital.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Marketing Digital</a>
+    <a href="Analyse de données.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Analyse de données</a>
+    <a href="Réseaux.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Réseaux & Systèmes</a>
+  </div>
+</div>
+
+ <a href="" class="hover:text-teal-500">Contact</a>
+  
+        </div>
+      </nav>
+
+      <!-- Menu mobile button -->
+      <button id="menuBtn" class="md:hidden text-3xl text-[#214980] focus:outline-none">
+        &#9776;
+      </button>
+    </div>
   </div>
 
   <!-- Mobile menu -->
-  <nav id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200 shadow-md">
-    <ul class="flex flex-col px-6 py-5 space-y-3 font-semibold text-gray-700">
-      <li>
-        <button id="mobileFormationsBtn" aria-expanded="false" class="flex justify-between items-center w-full py-2 hover:text-primary transition focus:outline-none focus:ring-2 focus:ring-primary font-semibold">
-          Formations
-          <svg id="mobileArrow" class="w-5 h-5 text-primary transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
+    <div class="flex justify-end">
+      <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
+      <a href="index.html" class="block">ACCEUIL</a>
+      <a href="#a-propos" class="block">QUI SOMMES-NOUS</a>
+
+      <!-- Dropdown Formations -->
+      <div>
+        <button id="mobileDropdownBtn" class="w-full flex justify-between items-center">
+          FORMATIONS
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
         </button>
-        <ul id="mobileFormationsDropdown" class="max-h-0 opacity-0 overflow-hidden transition-[max-height,opacity] duration-500 pl-4 mt-2 border-l-2 border-primary text-sm space-y-2">
-          <li><a href="#" class="block py-1 hover:text-primary">Gestion de Projet (PMP, MS Project)</a></li>
-          <li><a href="#" class="block py-1 hover:text-primary">Méthodes Agiles (SCRUM, PSM, PSPO)</a></li>
-          <li><a href="#" class="block py-1 hover:text-primary">Tests Logiciels (ISTQB, Selenium)</a></li>
-          <li><a href="#" class="block py-1 hover:text-primary">Business Intelligence / Power BI / Big Data</a></li>
-          <li><a href="#" class="block py-1 hover:text-primary">Développement Web & Full Stack</a></li>
-          <li><a href="#" class="block py-1 hover:text-primary">ERP SAP (FICO, MM, SD)</a></li>
-          <li><a href="#" class="block py-1 hover:text-primary">Réseaux & Systèmes (Cisco, Windows Server)</a></li>
-        </ul>
-      </li>
-      <li><a href="#about" class="py-2 hover:text-primary transition block">À propos</a></li>
-      <li><a href="#contact" class="py-2 hover:text-primary transition block">Contact</a></li>
-    </ul>
-  </nav>
+        <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
+          <a href="#gestion-projet" class="block">Gestion de projet </a>
+          <a href="#agile" class="block">Méthodes Agiles </a>
+          <a href="#testing" class="block">Tests logiciels</a>
+          <a href="#bi" class="block">Business Intelligence </a>
+          <a href="#dev" class="block">Développement Web </a>
+          <a href="#sap" class="block">SAP ERP</a>
+          <a href="#reseaux" class="block">Réseaux & Systèmes </a>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>
 
-<!-- Contenu principal -->
-<main class="pt-24 max-w-7xl mx-auto px-6 select-none">
 
-  <!-- Hero -->
-  <section class="flex flex-col md:flex-row items-center justify-between gap-12 my-24">
-    <div class="md:w-1/2" data-aos="fade-right">
-      <h1 class="text-5xl font-extrabold text-primary leading-tight mb-6 tracking-tight">
-        Cabinet Coaching & Formation<br />
-        <span class="text-gray-700">IT & Management</span>
-      </h1>
-      <p class="text-gray-700 mb-8 max-w-lg text-lg">
-        Boostez votre carrière grâce à nos formations professionnelles certifiantes en gestion de projet, développement web, méthodes agiles et plus.
+<section id="accueil" class="hero">
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h1><span id="typewriter"></span><span class="cursor">|</span></h1>
+    <p> Votre avenir commence ici !</p>
+  </div>
+</section>
+
+
+
+<section id="a-propos" style="background:#f9fafb; padding: 60px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+    
+    <!-- Bandeau vertical -->
+    <div style="width: 6px; background: #43B02A; height: 200px; border-radius: 4px;"></div>
+    
+    <!-- Texte -->
+    <div style="flex:1; min-width: 280px; opacity: 0; transform: translateX(-40px); transition: opacity 0.9s ease, transform 0.9s ease;" id="text-container">
+      <h2 style="color: #214980; font-size: 3.2rem; font-weight: 700; margin-bottom: 20px;">
+        À propos de nous
+      </h2>
+      <p style="color: #333; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">
+        Nous sommes un cabinet expert en coaching et consulting, dédié à vous accompagner dans votre réussite professionnelle avec des solutions personnalisées et innovantes.
       </p>
-      <a href="#formations" class="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-blue-800 transition duration-300">
-        Voir les formations
+      <a href="#formations" style="display: inline-block; padding: 14px 40px; background: linear-gradient(90deg, #214980 0%, #43B02A 100%); color: white; font-weight: 600; border-radius: 30px; text-decoration: none; box-shadow: 0 8px 15px rgba(33, 73, 128, 0.3); transition: box-shadow 0.3s ease, transform 0.3s ease;" onmouseover="this.style.boxShadow='0 12px 20px rgba(67, 176, 42, 0.5)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.boxShadow='0 8px 15px rgba(33, 73, 128, 0.3)'; this.style.transform='translateY(0)';">
+        Découvrir nos formations
       </a>
     </div>
-    <div class="md:w-1/2" data-aos="fade-left">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Illustration formation" class="rounded-xl shadow-lg" />
-    </div>
-  </section>
 
-  <!-- Section Formations -->
-  <section id="formations" class="my-32">
-    <h2 class="text-4xl font-extrabold text-primary mb-14 text-center">Nos Formations</h2>
-    <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 text-gray-700">
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">Gestion de Projet</h3>
-        <p class="text-sm">PMP, MS Project, outils de planification avancés</p>
-      </li>
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">Méthodes Agiles</h3>
-        <p class="text-sm">SCRUM, PSM, PSPO, coaching agile</p>
-      </li>
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">Tests Logiciels</h3>
-        <p class="text-sm">ISTQB, Selenium, gestion des tests automatisés</p>
-      </li>
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">Business Intelligence / Big Data</h3>
-        <p class="text-sm">Power BI, Hadoop, data management avancé</p>
-      </li>
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">Développement Web & Full Stack</h3>
-        <p class="text-sm">PHP, Java/J2EE, .NET, DevOps</p>
-      </li>
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">ERP SAP</h3>
-        <p class="text-sm">FICO, MM, SD (métier et paramétrage)</p>
-      </li>
-      <li class="border border-secondary rounded-2xl p-7 hover:shadow-2xl transition-shadow duration-400 cursor-default">
-        <h3 class="font-bold text-xl mb-3">Réseaux & Systèmes</h3>
-        <p class="text-sm">Cisco CCNA, CCNP, Windows Server, Azure</p>
-      </li>
-    </ul>
-  </section>
+    <!-- Image circulaire -->
+    <div style="flex:1; min-width: 280px; display: flex; justify-content: center; opacity: 0; transform: translateX(40px); transition: opacity 0.9s ease, transform 0.9s ease;" id="image-container">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Equipe professionnelle" style="width: 280px; height: 280px; border-radius: 50%; box-shadow: 0 8px 20px rgba(67, 176, 42, 0.35); object-fit: cover;">
+    </div>
 
-</main>
-
-<!-- Footer -->
-<footer class="bg-primary text-white py-12 mt-32 select-none">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
-    <div>
-      <h4 class="font-extrabold mb-4 text-xl">Cabinet Coaching</h4>
-      <p class="text-gray-300 text-sm leading-relaxed">Coaching, consulting & formation professionnelle en IT & management depuis plus de 10 ans.</p>
-    </div>
-    <div>
-      <h4 class="font-extrabold mb-4 text-xl">Contact</h4>
-      <p class="text-gray-300 text-sm">📞 +216 XX XXX XXX</p>
-      <p class="text-gray-300 text-sm">📧 contact@cabinet.tn</p>
-      <p class="text-gray-300 text-sm">📍 Tunis, Tunisie</p>
-    </div>
-    <div>
-      <h4 class="font-extrabold mb-4 text-xl">Navigation</h4>
-      <ul class="text-gray-300 space-y-2">
-        <li><a href="#formations" class="hover:underline">Formations</a></li>
-        <li><a href="#about" class="hover:
-        <li><a href="#about" class="hover:underline">À propos</a></li>
-        <li><a href="#contact" class="hover:underline">Contact</a></li>
-      </ul>
-    </div>
   </div>
-  <p class="text-center text-gray-300 text-sm mt-10 select-none">© 2025 Cabinet Coaching. Tous droits réservés.</p>
-</footer>
+</section>
 
-<!-- Scripts -->
 <script>
-  // Navbar sticky background on scroll
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // Desktop dropdown toggle
-  const formationsBtn = document.getElementById('formationsBtn');
-  const formationsDropdown = document.getElementById('formationsDropdown');
-  const arrowIcon = document.getElementById('arrowIcon');
-
-  formationsBtn.addEventListener('click', () => {
-    const isOpen = formationsDropdown.classList.toggle('open');
-    formationsBtn.setAttribute('aria-expanded', isOpen);
-    arrowIcon.classList.toggle('rotate-180', isOpen);
-  });
-
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('block');
-    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-  });
-
-  // Mobile dropdown toggle
-  const mobileFormationsBtn = document.getElementById('mobileFormationsBtn');
-  const mobileFormationsDropdown = document.getElementById('mobileFormationsDropdown');
-  const mobileArrow = document.getElementById('mobileArrow');
-
-  mobileFormationsBtn.addEventListener('click', () => {
-    const isOpen = mobileFormationsDropdown.classList.toggle('max-h-[500px]');
-    if(isOpen) {
-      mobileFormationsDropdown.style.opacity = '1';
-      mobileFormationsDropdown.style.maxHeight = '500px';
-      mobileArrow.classList.add('rotate-180');
-      mobileFormationsBtn.setAttribute('aria-expanded', 'true');
-    } else {
-      mobileFormationsDropdown.style.opacity = '0';
-      mobileFormationsDropdown.style.maxHeight = '0';
-      mobileArrow.classList.remove('rotate-180');
-      mobileFormationsBtn.setAttribute('aria-expanded', 'false');
-    }
+  window.addEventListener('load', () => {
+    const text = document.getElementById('text-container');
+    const image = document.getElementById('image-container');
+    setTimeout(() => {
+      text.style.opacity = '1';
+      text.style.transform = 'translateX(0)';
+      image.style.opacity = '1';
+      image.style.transform = 'translateX(0)';
+    }, 300);
   });
 </script>
 
+
+
+<script>
+  // Animation d'apparition du texte au chargement
+  window.addEventListener('load', () => {
+    const textContent = document.getElementById('text-content');
+    setTimeout(() => {
+      textContent.style.opacity = '1';
+      textContent.style.transform = 'translateY(0)';
+    }, 300);
+  });
+</script>
+
+ <script>
+        // Typewriter
+        const text = "Découvrez notre expertise";
+        const animatedText = document.getElementById('typewriter');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                animatedText.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        typeWriter();
+
+           </script>
+
+
+
+
+<section id="formations" class="py-12 bg-gray-50">
+
+  <div class="flex justify-center items-center gap-4">
+    <h1 class="text-5xl font-extrabold text-[#214980] m-0">
+      Parcours de 
+    </h1>
+    <span class="bg-[#08aa18] px-6 py-2 rounded-2xl text-white text-3xl md:text-5xl font-extrabold inline-block">
+      formation
+    </span>
+  </div>
+  <div class="flex justify-center mt-6">
+    <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
+    </svg>
+  </div>
+  <br>
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <a href="Développement Web.html" class="block">
+   <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/developpement.jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+  <div class="p-6 text-center">
+    <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">Développement</h3>
+    <p class="text-gray-600">5 Formations</p>
+  </div>
+</div>
+</a>
+
+<a href="page_ISTQB.html" class="block">
+
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/testing.jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">Tests logiciels</h3>
+        <p class="text-gray-600">3 Formations</p>
+      </div>
+    </div>
+</a>
+    <a href="project manager.html" class="block">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/project manager.jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">Gestion de projet</h3>
+        <p class="text-gray-600">2 Formations</p>
+      </div>
+    </div>
+    </a>
+<a href="SAP ERP.html" class="block">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/SAP ERP.jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">ERP SAP</h3>
+        <p class="text-gray-600">3 Formations</p>
+      </div>
+    </div>
+</a>
+<a href="Digital.html" class="block">
+
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/Marketing.jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">Marketing Digital</h3>
+        <p class="text-gray-600">2 Formations</p>
+      </div>
+    </div>
+
+</a>
+<a href="Analyse de données.html" class="block">
+ <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/analyse de donnes .jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">Analyse de données </h3>
+        <p class="text-gray-600">3 Formations</p>
+      </div>
+    </div>
+   
+</a>
+<a href="Réseaux.html" class="block">
+ <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+  <img src="images acceuil/reseaux.jpg" alt="Développement web & Full Stack" class="w-full h-40 object-cover">
+      <div class="p-6 text-center">
+        <h3 class="text-3xl font-extrabold text-[#214980] mb-2 hover:underline">Réseaux & Systèmes </h3>
+        <p class="text-gray-600">3 Formations</p>
+      </div>
+    </div>
+</a>
+  </div>
+
+</section>
+
+    
+
+
+
+<br><br><br>
+
+
+  <script src="acceuil.js"></script>
+
+
+
+
+  <!-- Section Témoignage -->
+<section class="w-full bg-[#f0f4fa] py-20 px-6 md:px-16 text-center font-sans">
+  <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-12">
+    Témoignages de nos apprenants
+  </h2>
+<br><br>
+  <!-- Carousel Container -->
+  <div class="relative max-w-3xl mx-auto">
+    <!-- Testimonial Cards Wrapper -->
+    <div class="testimonial-wrapper">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/Tmaryem.jfif" alt="Maryem B'k" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Maryem B'k</p>
+          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+          “J'ai beaucoup apprécié la formation de testeur de logiciel au sein de G2C. Le rythme des cours, le contenu et les supports étaient excellents. Avec le formateur Walid Hnaien, l’ambiance était très motivante ❤️❤️. J’ai adoré mon expérience avec G2C et je recommanderais sans hésitation !”
+        </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+
+
+    
+
+        <!-- témoinage 3 -->
+       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/Ibtissem.jpeg" alt="ibtissem boudhina" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Ibtissem Boudhina</p>
+          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+        “Très satisfaite de ma formation chez vous. Le formateur est professionnel et à l’écoute. Le contenu est clair, bien structuré, et adapté au marché du travail. L’ambiance est agréable. Je recommande vivement ce centre pour toute personne souhaitant se former efficacement.❤️❤️!”
+       </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+
+
+    <!-- témoinage 3 -->
+       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/ELYES.jpg" alt="Elyes Hassnaoui" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Elyes Hassnaoui</p>
+          <p class="text-sm text-gray-500">Cliente certifiée CISCO CCNA </p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+          “Je Tiens a vous remercie pour la formation en dépannage réseau. que m'a permis d'acquérir de préciseuses compétences techniques.votre expertise et votre pédagogie ont grandement facilité mon apprentissage.un grande merci monsieur jihed pour la formation.❤️❤️!”
+        </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+
+
+
+        <!-- Témoinage 2 -->
+      <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/Yasmine.jpeg" alt="yassmine Grati" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Yasmine Grati</p>
+          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+          “Je recommande vivement le centre de formation G2C pour leur engagement envers la qualité de la formation et l'expertise de Mr. Walid, notre formateur tout au long de la préparation à la certification ISTQB. 🥰”
+        </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+       <!-- témoinage 3 -->
+       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/Mbarka.jpg" alt="ibtissem boudhina" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Mabarka Nouri</p>
+          <p class="text-sm text-gray-500">Cliente Java Orienté Objet</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+     "Je Voudrais vous remercie pour la formation Java Orienté Objet . un grand merci a monsieur Mourad le formateur "       </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+
+
+       <!-- témoinage 4  -->
+       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/Omar.jpeg" alt="omar marabou" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Omar Marabou</p>
+          <p class="text-sm text-gray-500">Client certifié ISTQB</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+        “J'ai intégré la formation chez G2C en 2024 c'etait une expérience très agréable, très riche au niveau contenu y avait une ambiance très amicable .Je suis très satisfait et je vous conseille d'intégrer le centre de formation G2C ”
+       </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div> 
+
+
+
+
+       <!-- témoinage 3 -->
+       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/HANEN.jpg" alt="ibtissem boudhina" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Hanen Dissem</p>
+          <p class="text-sm text-gray-500">Cliente Excel</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+         " j'ai terminé la formation excel , merci beaucoup je suis tres satisfaite et la formatrice aussi tres gentille , a la prochaine fois inchalah  "       </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+
+
+       <!-- témoinage 3 -->
+       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <img src="outils/Mbarka.jpg" alt="ibtissem boudhina" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
+        </div>
+        <div class="mt-4">
+          <p class="font-semibold text-[#1f2f56] text-lg">Haifa Maamouri </p>
+          <p class="text-sm text-gray-500">Cliente Test Manager</p>
+        </div>
+        <p class="text-gray-600 my-6 italic leading-relaxed">
+         " ❤️❤️ j'ai eu chance de suivre une formation ISTQB foundation level et advanced level avec M. Hnaien , et je tiens a souligner son grand professionnalisme tout au long du parcours.ses explications claires et precises m'ont permis de progresser rapidement et efficacement. je recommande vivement ses formations a toute personne souhaitant se perfectionner dans le domaine du test logiciel  "       </p>
+        <div class="flex justify-center text-yellow-500 text-xl">
+          ★★★★★
+        </div>
+      </div>
+      <!-- Add more testimonials here if needed -->
+    </div>
+
+    <!-- Navigation Arrows -->
+  <button id="prevBtn" type="button" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-[#214980] border border-[#214980] hover:bg-[#214980] hover:text-white transition rounded-full w-10 h-10 shadow-md">
+  ←
+</button>
+<button id="nextBtn" type="button" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-[#214980] border border-[#214980] hover:bg-[#214980] hover:text-white transition rounded-full w-10 h-10 shadow-md">
+  →
+</button>
+
+</div>
+</section>
+
+
+<script>  
+
+
+const testimonialWrapper = document.querySelector('.testimonial-wrapper');
+  const testimonials = document.querySelectorAll('.testimonial-card');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentIndex = 0;
+
+  // Initially show the first testimonial
+  testimonials.forEach((testimonial, index) => {
+    testimonial.style.display = index === 0 ? 'block' : 'none';
+  });
+
+ nextBtn.addEventListener('click', (e) => {
+  e.preventDefault(); // Empêche tout comportement par défaut
+  testimonials[currentIndex].style.display = 'none';
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  testimonials[currentIndex].style.display = 'block';
+});
+
+prevBtn.addEventListener('click', (e) => {
+  e.preventDefault(); // Empêche tout comportement par défaut
+  testimonials[currentIndex].style.display = 'none';
+  currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+  testimonials[currentIndex].style.display = 'block';
+});
+
+  
+  
+  </script>
+<footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
+
+    <!-- Bloc Logo & Intro -->
+    <div class="flex flex-col items-center md:items-start">
+      <img src="logo.png" class="h-28 md:h-36 w-auto mb-4" />
+      <p class="text-sm text-[#6B7280] mb-6 max-w-xs">
+        Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
+      </p>
+
+      <div>
+        <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
+        <div class="flex justify-center md:justify-start items-center space-x-4">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
+            <i class="fab fa-facebook-f text-lg"></i>
+          </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
+            <i class="fab fa-linkedin-in text-lg"></i>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc Menu -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="font-semibold mb-4">Menu</h4>
+      <ul class="space-y-2 text-sm text-[#1F2D3D]">
+        <li><a href="index.html" class="hover:text-[#214980]">Formations</a></li>
+        <li><a href="index.html" class="hover:text-[#214980]">À propos</a></li>
+      </ul>
+    </div>
+
+    <!-- Bloc Contact -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm text-[#1F2D3D] max-w-xs">
+        <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (+216) 23 580 745</li>
+        <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (+216) 70 621 226</li>
+        <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/21623580745" target="_blank"
+     class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-lg hover:scale-105 transition">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+  </a>
+</footer>
 </body>
 </html>
