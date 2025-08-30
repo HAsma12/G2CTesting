@@ -122,6 +122,29 @@
     background-color: white;
   }
 </style>
+<script>
+  // Sélection des éléments
+  const menuBtn = document.getElementById('menuBtn');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileDropdownBtn = document.getElementById('mobileDropdownBtn');
+  const mobileDropdown = document.getElementById('mobileDropdown');
+
+  // Ouvrir le menu mobile
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+  });
+
+  // Fermer le menu mobile
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+
+  // Toggle dropdown mobile
+  mobileDropdownBtn.addEventListener('click', () => {
+    mobileDropdown.classList.toggle('hidden');
+  });
+</script>
 
 
 
