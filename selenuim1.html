@@ -37,49 +37,97 @@
 </head>
 
 <body class="bg-[#f7f7f9]" x-data="{ active: '' }">
-  <!-- Navbar -->
-  <header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
-      <div class="flex justify-between items-center h-24">
-        <!-- Logo -->
-        <div class="flex items-center">
-          <img src="logo.png" class="h-24 md:h-32 w-auto" />
-        </div>
+ 
 
-        <!-- Menu desktop -->
-        <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
-          <a href="index.html" class="hover:text-teal-500">ACCUEIL</a>
-          <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
-          <a href="index.html" class="hover:text-teal-500">FORMATIONS</a>
-         
-        </nav>
 
-        <!-- Menu mobile button -->
-        <button id="menuBtn" class="md:hidden text-3xl text-[#214980] focus:outline-none">&#9776;</button>
+<!-- Navbar -->
+<header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
+    <div class="flex justify-between items-center h-24">
+
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="logo.png" class="h-24 md:h-32 w-auto" />
       </div>
-    </div>
 
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
-      <div class="flex justify-end">
-        <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
-      </div>
-      <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
-        <a href="index.html" class="block">ACCUEIL</a>
-        <a href="index.html" class="block">QUI SOMMES-NOUS</a>
-        <a href="index.html" class="block">FORMATIONS</a>
-       
+      <!-- Menu desktop -->
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
+        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
+        <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+       <!-- FORMATIONS Dropdown (clic) -->
+<div class="relative">
+  <button id="dropdownToggle" class="hover:text-teal-500 inline-flex items-center focus:outline-none">
+    FORMATIONS
+    <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+      <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
+    </svg>
+  </button>
+
+  <!-- Dropdown content -->
+  <div id="desktopDropdown" class="hidden absolute bg-white shadow-md rounded-md mt-2 py-2 w-52 z-50">
+    <a href="index.html" class="block px-4 py-2 text-sm hover:bg-teal-100">Testing</a>
+
+    
+
+    <a href="project manager.html" class="block px-4 py-2 text-sm hover:bg-teal-100"> Project Manager</a>
+  </div>
+</div>     
       </nav>
+
+      <!-- Menu mobile button -->
+      <button id="menuBtn" class="md:hidden text-3xl text-[#214980] focus:outline-none">
+        &#9776;
+      </button>
     </div>
-  </header>
+  </div>
 
-  <!-- JS pour menu mobile -->
-  <script>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
+    <div class="flex justify-end">
+      <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
+    </div>
+   <!-- MENU MOBILE -->
+<nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
+  <a href="index.html" class="block">ACCEUIL</a>
+  <a href="a-propos" class="block">QUI SOMMES-NOUS</a>
+
+  <!-- Dropdown Formations -->
+  <div>
+    <button id="mobileDropdownBtn" class="w-full flex justify-between items-center">
+      FORMATIONS
+      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </button>
+    <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
+      <a href="index.html" class="block">Testing</a>
+
+      <a href="project manager.html" class="block">Project Manager</a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+  </div>
+</header>
+
+
+
+<!-- Sticky navbar shadow on scroll -->
+<style>
+  .sticky-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    background-color: white;
+  }
+</style>
+
+<!-- JS pour menu mobile -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Sticky shadow on scroll
     const navbar = document.getElementById("navbar");
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const closeMenu = document.getElementById("closeMenu");
-
     window.addEventListener("scroll", () => {
       if (window.scrollY > 10) {
         navbar.classList.add("sticky-shadow");
@@ -88,14 +136,56 @@
       }
     });
 
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.remove("hidden");
+    // Menu mobile open/close
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeMenu");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn?.addEventListener("click", () => {
+      mobileMenu?.classList.remove("hidden");
     });
 
-    closeMenu.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
+    closeBtn?.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
     });
-  </script>
+
+    // Fermer menu mobile en cliquant sur un lien
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu?.classList.add("hidden");
+      });
+    });
+
+    // Mobile dropdown FORMATIONS
+    const mobileDropdownBtn = document.getElementById("mobileDropdownBtn");
+    const mobileDropdown = document.getElementById("mobileDropdown");
+    mobileDropdownBtn?.addEventListener("click", () => {
+      mobileDropdown?.classList.toggle("hidden");
+    });
+
+    // Mobile sous-dropdown TESTING
+    const mobileTestingBtn = document.getElementById("mobileTestingBtn");
+    const mobileTestingMenu = document.getElementById("mobileTestingMenu");
+    mobileTestingBtn?.addEventListener("click", () => {
+      mobileTestingMenu?.classList.toggle("hidden");
+    });
+
+    // Desktop dropdown FORMATIONS (click)
+    const dropdownToggle = document.getElementById("dropdownToggle");
+    const desktopDropdown = document.getElementById("desktopDropdown");
+
+    dropdownToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      desktopDropdown?.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!desktopDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        desktopDropdown?.classList.add("hidden");
+      }
+    });
+  });
+</script>
 
   <!-- Section principale -->
   <div class="min-h-screen flex flex-col justify-center bg-gradient-to-b from-white to-slate-50 px-6 py-20">
@@ -178,7 +268,7 @@
       <!-- Actions -->
       <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
         <a
-  href="Programme de formation selenium avec Python.pdf"
+  href="programmes/Programme de formation selenium avec Python.pdf"
   download
   @click.prevent="
     Swal.fire({
@@ -193,7 +283,7 @@
         setTimeout(() => clearInterval(timerInterval), 2000);
       }
     });
-    setTimeout(() => window.open('Programme de formation selenium avec Python.pdf', '_blank'), 2100);
+    setTimeout(() => window.open('programmes/Programme de formation selenium avec Python.pdf', '_blank'), 2100);
   "
   class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
 >
@@ -262,7 +352,7 @@
       <!-- Actions -->
       <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
         <a
-  href="Programme Formation Selenium Automation JAVA - A4Q.pdf"
+  href="programmes/Programme Formation Selenium Automation JAVA - A4Q.pdf"
   download
   @click.prevent="
     Swal.fire({
@@ -277,7 +367,7 @@
         setTimeout(() => clearInterval(timerInterval), 2000);
       }
     });
-    setTimeout(() => window.open('Programme Formation Selenium Automation JAVA - A4Q.pdf', '_blank'), 2100);
+    setTimeout(() => window.open('programmes/Programme Formation Selenium Automation JAVA - A4Q.pdf', '_blank'), 2100);
   "
   class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
 >

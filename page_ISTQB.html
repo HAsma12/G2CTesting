@@ -6,17 +6,25 @@
   <title>Cabinet Coaching & Consulting</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="style.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link rel="stylesheet" href="acceuil.css" />
+ 
+  <script></script>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Font Awesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Alpine.js -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 
 </head>
 
@@ -34,6 +42,7 @@
 
 <!-- Navbar -->
 <header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
+
   <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
     <div class="flex justify-between items-center h-24">
 
@@ -44,10 +53,46 @@
 
       <!-- Menu desktop -->
       <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
-        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
-        <a href="index.html" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
-        <a href="index.html" class="hover:text-teal-500">FORMATIONS</a>
+<a href="acceuil1.html" class="custom-green">ACCEUIL</a>
+        <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
+
         
+  <!-- FORMATIONS Dropdown -->
+<div class="relative inline-block" x-data="{ open: false }" 
+     @mouseenter="open = true" 
+     @mouseleave="open = false"
+>
+  <button class="hover:text-teal-500 inline-flex items-center focus:outline-none">
+    FORMATIONS
+    <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+      <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
+    </svg>
+  </button>
+
+  <div
+    x-show="open"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 transform -translate-y-2"
+    x-transition:enter-end="opacity-100 transform translate-y-0"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100 transform translate-y-0"
+    x-transition:leave-end="opacity-0 transform -translate-y-2"
+    class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50"
+    style="display: none;"
+  >
+    <a href="Développement Web.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Développement web  & Full Stack</a>
+    <a href="#testing" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Tests logiciels</a>
+    <a href="project manager.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Gestion de projet</a>
+    <a href="SAP ERP.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">ERP SAP</a>
+    <a href="Digital.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Marketing Digital</a>
+    <a href="Analyse de données.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Analyse de données</a>
+    <a href="Réseaux.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Réseaux & Systèmes</a>
+  </div>
+</div>
+
+ <a href="" class="hover:text-teal-500">Contact</a>
+  
+        </div>
       </nav>
 
       <!-- Menu mobile button -->
@@ -62,14 +107,34 @@
     <div class="flex justify-end">
       <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
     </div>
+
+    <!-- MENU MOBILE -->
     <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
       <a href="index.html" class="block">ACCEUIL</a>
-      <a href="index.html" class="block">QUI SOMMES-NOUS</a>
-      <a href="index.html" class="block">FORMATIONS</a>
-    
+      <a href="#a-propos" class="block">QUI SOMMES-NOUS</a>
+
+      <!-- Dropdown Formations -->
+      <div>
+        <button id="mobileDropdownBtn" class="w-full flex justify-between items-center">
+          FORMATIONS
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
+          <a href="#gestion-projet" class="block">Gestion de projet </a>
+          <a href="#agile" class="block">Méthodes Agiles </a>
+          <a href="#testing" class="block">Tests logiciels</a>
+          <a href="#bi" class="block">Business Intelligence </a>
+          <a href="#dev" class="block">Développement Web </a>
+          <a href="#sap" class="block">SAP ERP</a>
+          <a href="#reseaux" class="block">Réseaux & Systèmes </a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
+
 
 <!-- Sticky navbar shadow on scroll -->
 <style>
@@ -79,29 +144,7 @@
   }
 </style>
 
-<!-- JS pour menu mobile -->
-<script>
-  const navbar = document.getElementById("navbar");
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const closeMenu = document.getElementById("closeMenu");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 10) {
-      navbar.classList.add("sticky-shadow");
-    } else {
-      navbar.classList.remove("sticky-shadow");
-    }
-  });
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.remove("hidden");
-  });
-
-  closeMenu.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
-  });
-</script>
 
 
 
@@ -173,7 +216,7 @@
     <!-- Actions -->
     <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
       <a
-  href="programme ISTQB.pdf.pdf"
+  href="programmes/Plan de formation ISTQB Foundation level v4.0 + des Labs pratiques.pdf.pdf"
   download
   @click.prevent="
     Swal.fire({
@@ -188,7 +231,7 @@
         setTimeout(() => clearInterval(timerInterval), 2000);
       }
     });
-    setTimeout(() => window.open('programme ISTQB.pdf.pdf', '_blank'), 2100);
+    setTimeout(() => window.open('programmes/Plan de formation ISTQB Foundation level v4.0 + des Labs pratiques.pdf.pdf', '_blank'), 2100);
   "
   class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
 >
@@ -271,125 +314,7 @@
 </section>
 
 
-<br><br>
-<!-- Section Témoignage -->
-<section class="w-full bg-[#f0f4fa] py-20 px-6 md:px-16 text-center font-sans">
-  <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-12">
-    Témoignages de nos apprenants
-  </h2>
-<br><br>
-  <!-- Carousel Container -->
-  <div class="relative max-w-3xl mx-auto">
-    <!-- Testimonial Cards Wrapper -->
-    <div class="testimonial-wrapper">
-      <!-- Testimonial 1 -->
-      <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Tmaryem.jfif" alt="Maryem B'k" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Maryem B'k</p>
-          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-          “J'ai beaucoup apprécié la formation de testeur de logiciel au sein de G2C. Le rythme des cours, le contenu et les supports étaient excellents. Avec le formateur Walid Hnaien, l’ambiance était très motivante ❤️❤️. J’ai adoré mon expérience avec G2C et je recommanderais sans hésitation !”
-        </p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div>
-        <!-- Témoinage 2 -->
-      <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Yasmine.jpeg" alt="yassmine Grati" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Yasmine Grati</p>
-          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-          “Je recommande vivement le centre de formation G2C pour leur engagement envers la qualité de la formation et l'expertise de Mr. Walid, notre formateur tout au long de la préparation à la certification ISTQB. 🥰”
-        </p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div>
-       <!-- témoinage 3 -->
-       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Ibtissem.jpeg" alt="ibtissem boudhina" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Ibtissem Boudhina</p>
-          <p class="text-sm text-gray-500">Cliente certifiée ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-        “Très satisfaite de ma formation chez vous. Le formateur est professionnel et à l’écoute. Le contenu est clair, bien structuré, et adapté au marché du travail. L’ambiance est agréable. Je recommande vivement ce centre pour toute personne souhaitant se former efficacement.❤️❤️!”
-</p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div>
 
-
-       <!-- témoinage 3 -->
-       <div class="testimonial-card bg-white p-10 pt-24 rounded-3xl shadow-xl text-center transition-all duration-300">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <img src="outils/Omar.jpeg" alt="omar marabou" class="w-32 h-32 rounded-full border-4 border-white shadow-md object-cover">
-        </div>
-        <div class="mt-4">
-          <p class="font-semibold text-[#1f2f56] text-lg">Omar Marabou</p>
-          <p class="text-sm text-gray-500">Client certifié ISTQB</p>
-        </div>
-        <p class="text-gray-600 my-6 italic leading-relaxed">
-        “J'ai intégré la formation chez G2C en 2024 c'etait une expérience très agréable, très riche au niveau contenu y avait une ambiance très amicable .Je suis très satisfait et je vous conseille d'intégrer le centre de formation G2C ”
-</p>
-        <div class="flex justify-center text-yellow-500 text-xl">
-          ★★★★★
-        </div>
-      </div> 
-      <!-- Add more testimonials here if needed -->
-    </div>
-
-    <!-- Navigation Arrows -->
-    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-[#214980] border border-[#214980] hover:bg-[#214980] hover:text-white transition rounded-full w-10 h-10 shadow-md">
-      ←
-    </button>
-    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-[#214980] border border-[#214980] hover:bg-[#214980] hover:text-white transition rounded-full w-10 h-10 shadow-md">
-      →
-    </button>
-  </div>
-</section>
-
-<!-- Add this JavaScript at the bottom of your <body> -->
-<script>
-  const testimonialWrapper = document.querySelector('.testimonial-wrapper');
-  const testimonials = document.querySelectorAll('.testimonial-card');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let currentIndex = 0;
-
-  // Initially show the first testimonial
-  testimonials.forEach((testimonial, index) => {
-    testimonial.style.display = index === 0 ? 'block' : 'none';
-  });
-
-  // Next button click
-  nextBtn.addEventListener('click', () => {
-    testimonials[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    testimonials[currentIndex].style.display = 'block';
-  });
-
-  // Previous button click
-  prevBtn.addEventListener('click', () => {
-    testimonials[currentIndex].style.display = 'none';
-    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-    testimonials[currentIndex].style.display = 'block';
-  });
-
-
-</script>
 
 
 <footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
