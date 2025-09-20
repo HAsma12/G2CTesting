@@ -17,94 +17,104 @@
 
 
 
-  <!-- Navbar -->
-<header id="navbar" class="w-full bg-white bg-opacity-90 fixed md:fixed relative top-0 z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
-    <div class="flex justify-between items-center h-24">
+ </head>
+<body class="bg-gray-50 pt-24">
+
+<!-- Navbar -->
+<header id="navbar" class="w-full bg-white fixed top-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex justify-between items-center h-20">
 
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="logo.png" class="h-24 md:h-32 w-auto" />
+<img src="logo.png" alt="Logo" class="h-16 md:h-32 w-auto">
       </div>
 
       <!-- Menu desktop -->
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
-        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
-        <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
-       <!-- FORMATIONS Dropdown (clic) -->
-<div class="relative">
-  <button id="dropdownToggle" class="hover:text-teal-500 inline-flex items-center focus:outline-none">
-    FORMATIONS
-    <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-      <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
-    </svg>
-  </button>
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-[#214980]">
+        <a href="index.html" class="hover:text-teal-500 transition">ACCEUIL</a>
+        <a href="#a-propos" class="hover:text-teal-500 transition">QUI SOMMES-NOUS</a>
 
-  <!-- Dropdown content -->
-  <div id="desktopDropdown" class="hidden absolute bg-white shadow-md rounded-md mt-2 py-2 w-52 z-50">
-    <a href="index.html" class="block px-4 py-2 text-sm hover:bg-teal-100">Testing</a>
+        <!-- Dropdown FORMATIONS -->
+        <div class="relative group">
+          <button class="inline-flex items-center hover:text-teal-500 transition">
+            FORMATIONS
+            <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+              <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
+            </svg>
+          </button>
 
-    
+          <!-- Dropdown content -->
+          <div class="absolute hidden group-hover:block bg-white shadow-md rounded-md mt-3 py-2 w-64 z-50 animate-fade-in">
+            <a href="Développement Web.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Développement web & Full Stack</a>
+            <a href="#testing" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Tests logiciels</a>
+            <a href="project manager.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Gestion de projet</a>
+            <a href="SAP ERP.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">ERP SAP</a>
+            <a href="Digital.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Marketing Digital</a>
+            <a href="Analyse de données.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Analyse de données</a>
+            <a href="Réseaux.html" class="block px-4 py-2 text-sm text-[#214980] hover:bg-teal-100">Réseaux & Systèmes</a>
+          </div>
+        </div>
 
-    <a href="project manager.html" class="block px-4 py-2 text-sm hover:bg-teal-100"> Project Manager</a>
-  </div>
-</div>     
+        <a href="#contact" class="hover:text-teal-500 transition">CONTACT</a>
       </nav>
 
-      <!-- Menu mobile button -->
+      <!-- Bouton Contact (desktop) -->
+      <div class="hidden md:block">
+        <a href="#contact" class="bg-teal-500 text-white px-4 py-2 rounded-lg shadow hover:bg-teal-600 transition">Nous Contacter</a>
+      </div>
+
+      <!-- Bouton hamburger (mobile) -->
       <button id="menuBtn" class="md:hidden text-3xl text-[#214980] focus:outline-none">
         &#9776;
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
-<div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-white z-50 p-6 shadow-lg">
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="hidden md:hidden fixed top-20 left-0 w-full bg-white z-40 p-6 shadow-lg animate-slide-down">
     <div class="flex justify-end">
       <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
     </div>
-   <!-- MENU MOBILE -->
-<nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
-  <a href="index.html" class="block">ACCEUIL</a>
-  <a href="a-propos" class="block">QUI SOMMES-NOUS</a>
+    <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
+      <a href="index.html" class="block hover:text-teal-500 transition">ACCEUIL</a>
+      <a href="#a-propos" class="block hover:text-teal-500 transition">QUI SOMMES-NOUS</a>
 
-  <!-- Dropdown Formations -->
-  <div>
-    <button id="mobileDropdownBtn" class="w-full flex justify-between items-center">
-      FORMATIONS
-      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M6 9l6 6 6-6"/>
-      </svg>
-    </button>
-    <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
-      <a href="index.html" class="block">Testing</a>
+      <!-- Dropdown FORMATIONS -->
+      <div>
+        <button id="mobileDropdownBtn" class="w-full flex justify-between items-center hover:text-teal-500 transition">
+          FORMATIONS
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
+          <a href="Développement Web.html" class="block hover:text-teal-500">Développement web & Full Stack</a>
+          <a href="#testing" class="block hover:text-teal-500">Tests logiciels</a>
+          <a href="project manager.html" class="block hover:text-teal-500">Gestion de projet</a>
+          <a href="SAP ERP.html" class="block hover:text-teal-500">ERP SAP</a>
+          <a href="Digital.html" class="block hover:text-teal-500">Marketing Digital</a>
+          <a href="Analyse de données.html" class="block hover:text-teal-500">Analyse de données</a>
+          <a href="Réseaux.html" class="block hover:text-teal-500">Réseaux & Systèmes</a>
+        </div>
+      </div>
 
-      <a href="project manager.html" class="block">Project Manager</a>
-    </div>
-  </div>
-</nav>
-
-
-
-
+      <a href="#contact" class="block hover:text-teal-500 transition">CONTACT</a>
+    </nav>
   </div>
 </header>
 
-
-
-<!-- Sticky navbar shadow on scroll -->
-<style>
-  .sticky-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-    background-color: white;
-  }
-</style>
-
-<!-- JS pour menu mobile -->
+<!-- Script -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Sticky shadow on scroll
     const navbar = document.getElementById("navbar");
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeMenu");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileDropdownBtn = document.getElementById("mobileDropdownBtn");
+    const mobileDropdown = document.getElementById("mobileDropdown");
+
+    // Sticky shadow
     window.addEventListener("scroll", () => {
       if (window.scrollY > 10) {
         navbar.classList.add("sticky-shadow");
@@ -113,56 +123,37 @@
       }
     });
 
-    // Menu mobile open/close
-    const menuBtn = document.getElementById("menuBtn");
-    const closeBtn = document.getElementById("closeMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    menuBtn?.addEventListener("click", () => {
-      mobileMenu?.classList.remove("hidden");
+    // Mobile menu toggle
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
     });
 
-    closeBtn?.addEventListener("click", () => {
-      mobileMenu?.classList.add("hidden");
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
     });
 
-    // Fermer menu mobile en cliquant sur un lien
-    document.querySelectorAll("#mobileMenu a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu?.classList.add("hidden");
-      });
-    });
-
-    // Mobile dropdown FORMATIONS
-    const mobileDropdownBtn = document.getElementById("mobileDropdownBtn");
-    const mobileDropdown = document.getElementById("mobileDropdown");
-    mobileDropdownBtn?.addEventListener("click", () => {
-      mobileDropdown?.classList.toggle("hidden");
-    });
-
-    // Mobile sous-dropdown TESTING
-    const mobileTestingBtn = document.getElementById("mobileTestingBtn");
-    const mobileTestingMenu = document.getElementById("mobileTestingMenu");
-    mobileTestingBtn?.addEventListener("click", () => {
-      mobileTestingMenu?.classList.toggle("hidden");
-    });
-
-    // Desktop dropdown FORMATIONS (click)
-    const dropdownToggle = document.getElementById("dropdownToggle");
-    const desktopDropdown = document.getElementById("desktopDropdown");
-
-    dropdownToggle?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      desktopDropdown?.classList.toggle("hidden");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!desktopDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
-        desktopDropdown?.classList.add("hidden");
-      }
+    // Mobile dropdown toggle
+    mobileDropdownBtn.addEventListener("click", () => {
+      mobileDropdown.classList.toggle("hidden");
     });
   });
 </script>
+
+<!-- Animations -->
+<style>
+  @keyframes slide-down {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .animate-slide-down { animation: slide-down 0.3s ease-out; }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in { animation: fade-in 0.2s ease-out; }
+</style>
+
 <br><br><br>
 
 <!-- Formations -->
