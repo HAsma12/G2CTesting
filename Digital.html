@@ -14,175 +14,186 @@
 
 
 
-
-
-
-  <!-- Navbar -->
-<header id="navbar" class="w-full bg-white bg-opacity-90 fixed top-0 z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
+<header id="navbar" class="w-full fixed top-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/80 border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="flex justify-between items-center h-24">
 
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="logo.png" class="h-24 md:h-32 w-auto" />
+        <img src="logo.png" alt="Logo" class="h-20 sm:h-24 md:h-28 w-auto transition-all duration-300">
       </div>
 
       <!-- Menu desktop -->
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-[#214980]">
-        <a href="index.html" class="hover:text-teal-500">ACCEUIL</a>
-        <a href="#a-propos" class="hover:text-teal-500">QUI SOMMES-NOUS</a>
-       <!-- FORMATIONS Dropdown (clic) -->
-<div class="relative">
-  <button id="dropdownToggle" class="hover:text-teal-500 inline-flex items-center focus:outline-none">
-    FORMATIONS
-    <svg class="ml-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-      <path d="M5.25 7.25L10 12.25L14.75 7.25H5.25Z" />
+      <nav class="hidden md:flex items-center space-x-10 font-medium text-[#214980] tracking-wide">
+        <a href="index.html" class="relative group">
+          Accueil
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-teal-500 to-green-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#a-propos" class="relative group">
+          Qui sommes-nous
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-teal-500 to-green-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
+
+       <!-- Dropdown FORMATIONS  -->
+
+<div class="relative" id="desktopDropdown">
+  <button id="desktopDropdownBtn" class="flex items-center gap-2 font-semibold text-[#214980] hover:text-teal-500 transition">
+    Formations
+    <svg id="desktopDropdownIcon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 
-  <!-- Dropdown content -->
-  <div id="desktopDropdown" class="hidden absolute bg-white shadow-md rounded-md mt-2 py-2 w-52 z-50">
-    <a href="index.html" class="block px-4 py-2 text-sm hover:bg-teal-100">Testing</a>
-
-    
-
-    <a href="project manager.html" class="block px-4 py-2 text-sm hover:bg-teal-100"> Project Manager</a>
+  <div id="desktopDropdownMenu" class="absolute left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl p-4 flex flex-col gap-2 opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-2 z-50">
+    <a href="Développement Web.html" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">Développement Web & Full Stack</a>
+    <a href="#testing" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">Tests logiciels</a>
+    <a href="project manager.html" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">Gestion de projet</a>
+    <a href="SAP ERP.html" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">ERP SAP</a>
+    <a href="Digital.html" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">Marketing Digital</a>
+    <a href="Analyse de données.html" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">Analyse de données</a>
+    <a href="Réseaux.html" class="px-4 py-2 rounded-lg hover:bg-teal-50 transition">Réseaux & Systèmes</a>
   </div>
-</div>     
+</div>
+
+
+        <a href="#contact" class="relative group">
+          Contact
+          <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-teal-500 to-green-500 transition-all duration-300 group-hover:w-full"></span>
+        </a>
       </nav>
 
-      <!-- Menu mobile button -->
-      <button id="menuBtn" class="md:hidden text-3xl text-[#214980] focus:outline-none">
-        &#9776;
+      <!-- Bouton CTA -->
+      <div class="hidden md:block">
+        <a href="#contact" class="bg-gradient-to-r from-teal-500 to-green-500 text-white px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+          Nous Contacter
+        </a>
+      </div>
+
+      <!-- Bouton hamburger -->
+      <button id="menuBtn" class="md:hidden text-3xl text-[#214980] hover:scale-110 transition-transform duration-200">
+        ☰
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden fixed inset-0 bg-white z-50 p-6">
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="hidden md:hidden fixed top-24 left-0 w-full bg-white/95 backdrop-blur-md z-40 p-6 shadow-xl animate-slide-down">
     <div class="flex justify-end">
-      <button id="closeMenu" class="text-3xl text-[#214980]">&times;</button>
+      <button id="closeMenu" class="text-3xl text-[#214980] hover:rotate-90 transition-transform duration-300">&times;</button>
     </div>
-   <!-- MENU MOBILE -->
-<nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
-  <a href="index.html" class="block">ACCEUIL</a>
-  <a href="a-propos" class="block">QUI SOMMES-NOUS</a>
+    <nav class="mt-6 space-y-4 text-[#214980] font-medium text-lg">
+      <a href="index.html" class="block hover:text-teal-500 transition">Accueil</a>
+      <a href="#a-propos" class="block hover:text-teal-500 transition">Qui sommes-nous</a>
 
-  <!-- Dropdown Formations -->
-  <div>
-    <button id="mobileDropdownBtn" class="w-full flex justify-between items-center">
-      FORMATIONS
-      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M6 9l6 6 6-6"/>
-      </svg>
-    </button>
-    <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
-      <a href="index.html" class="block">Testing</a>
+      <!-- Dropdown mobile -->
+      <div>
+        <button id="mobileDropdownBtn" class="w-full flex justify-between items-center hover:text-teal-500 transition">
+          Formations
+          <svg class="w-4 h-4 ml-1 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        <div id="mobileDropdown" class="hidden pl-4 mt-2 space-y-2 text-sm">
+          <a href="Développement Web.html" class="block hover:text-teal-500">Développement web & Full Stack</a>
+          <a href="#testing" class="block hover:text-teal-500">Tests logiciels</a>
+          <a href="project manager.html" class="block hover:text-teal-500">Gestion de projet</a>
+          <a href="SAP ERP.html" class="block hover:text-teal-500">ERP SAP</a>
+          <a href="Digital.html" class="block hover:text-teal-500">Marketing Digital</a>
+          <a href="Analyse de données.html" class="block hover:text-teal-500">Analyse de données</a>
+          <a href="Réseaux.html" class="block hover:text-teal-500">Réseaux & Systèmes</a>
+        </div>
+      </div>
 
-      <a href="project manager.html" class="block">Project Manager</a>
-    </div>
-  </div>
-</nav>
-
-
-
-
+      <a href="#contact" class="block hover:text-teal-500 transition">Contact</a>
+    </nav>
   </div>
 </header>
 
-
-
-<!-- Sticky navbar shadow on scroll -->
-<style>
-  .sticky-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-    background-color: white;
-  }
-</style>
-
-<!-- JS pour menu mobile -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Sticky shadow on scroll
+
+
+ const desktopBtn = document.getElementById("desktopDropdownBtn");
+  const desktopMenu = document.getElementById("desktopDropdownMenu");
+  const desktopIcon = document.getElementById("desktopDropdownIcon");
+  const dropdownContainer = document.getElementById("desktopDropdown");
+
+  // Fonction pour ouvrir/fermer le dropdown avec animation
+  // Ouverture du dropdown au clic (plus moderne)
+desktopBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // empêche la fermeture immédiate
+  desktopMenu.classList.toggle("opacity-100");
+  desktopMenu.classList.toggle("translate-y-0");
+  desktopMenu.classList.toggle("opacity-0");
+  desktopMenu.classList.toggle("-translate-y-2");
+  desktopMenu.classList.toggle("pointer-events-none");
+  desktopIcon.classList.toggle("rotate-180");
+});
+
+// Fermer le menu si on clique ailleurs
+window.addEventListener("click", (e) => {
+  if (!dropdownContainer.contains(e.target)) {
+    desktopMenu.classList.add("opacity-0", "-translate-y-2", "pointer-events-none");
+    desktopMenu.classList.remove("opacity-100", "translate-y-0");
+    desktopIcon.classList.remove("rotate-180");
+  }
+});
+
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeMenu");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileDropdownBtn = document.getElementById("mobileDropdownBtn");
+  const mobileDropdown = document.getElementById("mobileDropdown");
+
+  if(menuBtn && closeBtn && mobileMenu && mobileDropdownBtn && mobileDropdown){
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+
+    mobileDropdownBtn.addEventListener("click", () => {
+      mobileDropdown.classList.toggle("hidden");
+      mobileDropdownBtn.querySelector("svg").classList.toggle("rotate-180");
+    });
+  }
+
+  // Effet shrink au scroll
+  window.addEventListener("scroll", () => {
     const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        navbar.classList.add("sticky-shadow");
-      } else {
-        navbar.classList.remove("sticky-shadow");
-      }
-    });
-
-    // Menu mobile open/close
-    const menuBtn = document.getElementById("menuBtn");
-    const closeBtn = document.getElementById("closeMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    menuBtn?.addEventListener("click", () => {
-      mobileMenu?.classList.remove("hidden");
-    });
-
-    closeBtn?.addEventListener("click", () => {
-      mobileMenu?.classList.add("hidden");
-    });
-
-    // Fermer menu mobile en cliquant sur un lien
-    document.querySelectorAll("#mobileMenu a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu?.classList.add("hidden");
-      });
-    });
-
-    // Mobile dropdown FORMATIONS
-    const mobileDropdownBtn = document.getElementById("mobileDropdownBtn");
-    const mobileDropdown = document.getElementById("mobileDropdown");
-    mobileDropdownBtn?.addEventListener("click", () => {
-      mobileDropdown?.classList.toggle("hidden");
-    });
-
-    // Mobile sous-dropdown TESTING
-    const mobileTestingBtn = document.getElementById("mobileTestingBtn");
-    const mobileTestingMenu = document.getElementById("mobileTestingMenu");
-    mobileTestingBtn?.addEventListener("click", () => {
-      mobileTestingMenu?.classList.toggle("hidden");
-    });
-
-    // Desktop dropdown FORMATIONS (click)
-    const dropdownToggle = document.getElementById("dropdownToggle");
-    const desktopDropdown = document.getElementById("desktopDropdown");
-
-    dropdownToggle?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      desktopDropdown?.classList.toggle("hidden");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!desktopDropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
-        desktopDropdown?.classList.add("hidden");
-      }
-    });
+    const logo = navbar.querySelector("img");
+    if(window.scrollY > 50){
+      navbar.classList.add("shadow-md", "h-20");
+      logo.classList.add("h-16");
+    } else {
+      navbar.classList.remove("shadow-md", "h-20");
+      logo.classList.remove("h-16");
+    }
   });
 </script>
 <br><br><br>
 
 <!-- Formations -->
 <section id="formations" class="px-4 py-12 bg-white">
-<div class="flex justify-center items-center gap-4">
-    <h1 class="text-5xl font-extrabold text-[#214980] m-0">
-      Parcours 
+<div class="flex flex-col md:flex-row justify-center items-center gap-4">
+    <h1 class="text-4xl sm:text-5xl md:text-5xl font-extrabold text-[#214980] m-0">
+      Parcours
     </h1>
-    <span class="bg-[#08aa18] px-6 py-2 rounded-2xl text-white text-3xl md:text-5xl font-extrabold inline-block">
+    <span class="bg-[#08aa18] px-4 sm:px-6 py-2 sm:py-3 rounded-2xl text-white text-2xl sm:text-3xl md:text-5xl font-extrabold inline-block">
       Digital
     </span>
-  </div>
+</div>
 
-     <br>
-  <!-- Ligne décorative SVG verte -->
-  <div class="flex justify-center mb-10 animate-fade-in-up">
-    <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
-    </svg>
-  </div>
+<!-- Ligne décorative SVG verte -->
+<div class="flex justify-center mb-10 animate-fade-in-up">
+  <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-40 sm:w-52 md:w-64">
+    <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
+  </svg>
+</div>
+
+
+
 
   <!-- Cartes de formations centrées -->
   <div class="flex flex-wrap justify-center gap-8">
@@ -199,7 +210,7 @@ Marketing Digital
 Une formation complète pour maîtriser le marketing digital : stratégie de contenu, réseaux sociaux, publicité en ligne, SEO et outils d’analyse pour optimiser votre présence sur le web.
         </p>
         <div class="mt-6 text-center">
-          <a href="SAP ERP FICO.html" class="bg-[#214980] text-white px-5 py-2 rounded-full hover:scale-105 transition-transform">En savoir plus</a>
+          <a href="Marketing Digital.html" class="bg-[#214980] text-white px-5 py-2 rounded-full hover:scale-105 transition-transform">En savoir plus</a>
         </div>
       </div>
     </div>
@@ -215,7 +226,7 @@ Une formation complète pour maîtriser le marketing digital : stratégie de con
        Une formation complète pour découvrir le design graphique : création visuelle, retouche d’images, mise en page et maîtrise des outils comme Photoshop, Illustrator et InDesign
         </p>
         <div class="mt-6 text-center">
-          <a href="SAP MMSD.html" class="bg-[#214980] text-white px-5 py-2 rounded-full hover:scale-105 transition-transform">En savoir plus</a>
+          <a href="Desgin infographie.html" class="bg-[#214980] text-white px-5 py-2 rounded-full hover:scale-105 transition-transform">En savoir plus</a>
         </div>
       </div>
     </div>
@@ -226,159 +237,63 @@ Une formation complète pour maîtriser le marketing digital : stratégie de con
 
 
 
+<!-- Footer Responsive -->
+<footer class="bg-[#edeff0] text-[#1F2D3D] pt-12 pb-6 px-6 sm:px-10 md:px-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
 
-<section id="faq" class="bg-white py-20 px-6 md:px-16">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#214980] mb-10">Questions fréquentes</h2>
-    <div class="flex justify-center mb-10 animate-fade-in-up">
-      <svg width="220" height="20" viewBox="0 0 220 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 10C33 5 77 20 110 10C143 0 187 15 219 10" stroke="#08aa18" stroke-width="2" />
-      </svg>
-    </div>
-  </div>
-
-  <div class="max-w-2xl mx-auto space-y-4">
-    <!-- Question 1 -->
-    <div class="border border-[#08aa18] rounded-xl overflow-hidden">
-      <button onclick="toggleFAQ(0)" class="w-full text-left px-6 py-4 font-semibold text-[#214980] flex justify-between items-center hover:bg-[#f1fdf2]">
-        La formation ISTQB nécessite-t-elle des prérequis ?
-        <span id="arrow0" class="transform transition-transform duration-300">▼</span>
-      </button>
-      <div id="faq0" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-600">
-        <p class="py-3">Non, cette formation est ouverte à tous, sans prérequis. Elle convient parfaitement aux débutants ou à ceux en reconversion.</p>
-      </div>
-    </div>
-
-    <!-- Question 2 -->
-    <div class="border border-[#08aa18] rounded-xl overflow-hidden">
-      <button onclick="toggleFAQ(1)" class="w-full text-left px-6 py-4 font-semibold text-[#214980] flex justify-between items-center hover:bg-[#f1fdf2]">
-        Faut-il avoir suivi l’ISTQB pour faire Selenium ?
-        <span id="arrow1" class="transform transition-transform duration-300">▼</span>
-      </button>
-      <div id="faq1" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-600">
-        <p class="py-3">Oui, il est fortement recommandé d’avoir des bases solides en QA manuelle avant d’aborder les tests automatisés avec Selenium.</p>
-      </div>
-    </div>
-
-    <!-- Question 3 -->
-    <div class="border border-[#08aa18] rounded-xl overflow-hidden">
-      <button onclick="toggleFAQ(2)" class="w-full text-left px-6 py-4 font-semibold text-[#214980] flex justify-between items-center hover:bg-[#f1fdf2]">
-        Le parcours Test Manager nécessite-t-il un niveau avancé ?
-        <span id="arrow2" class="transform transition-transform duration-300">▼</span>
-      </button>
-      <div id="faq2" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-600">
-<p class="py-3">
-  Oui, cette formation s’adresse aux professionnels expérimentés, ayant déjà une pratique en QA manuelle et/ou automatisée. <br />
-   <span class="font-semibold text-[#08aa18]"></span> 
-</p>
-      </div>
-    </div>
-
-    <!-- Question 4 -->
-    <div class="border border-[#08aa18] rounded-xl overflow-hidden">
-      <button onclick="toggleFAQ(3)" class="w-full text-left px-6 py-4 font-semibold text-[#214980] flex justify-between items-center hover:bg-[#f1fdf2]">
-        Est-ce que la formation est en ligne ?
-        <span id="arrow3" class="transform transition-transform duration-300">▼</span>
-      </button>
-      <div id="faq3" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-600">
-        <p class="py-3">Nos formations sont disponibles <span class="font-semibold text-[#082aaa]">en ligne ou en présentiel</span>, selon votre disponibilité et votre préférence.</p>
-      </div>
-    </div>
-
-    <!-- Question 5 -->
-    <div class="border border-[#08aa18] rounded-xl overflow-hidden">
-      <button onclick="toggleFAQ(4)" class="w-full text-left px-6 py-4 font-semibold text-[#214980] flex justify-between items-center hover:bg-[#f1fdf2]">
-        Vais-je recevoir une certification à la fin ?
-        <span id="arrow4" class="transform transition-transform duration-300">▼</span>
-      </button>
-      <div id="faq4" class="max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-600">
-        <p class="py-3">Oui, à l’issue de chaque formation, vous recevez une <span class="font-semibold text-[#08aa18]">certification agréée par l’État</span>, attestant de vos compétences.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<script>
-  let currentOpen = null;
-  function toggleFAQ(index) {
-    for (let i = 0; i < 5; i++) {
-      const content = document.getElementById(`faq${i}`);
-      const arrow = document.getElementById(`arrow${i}`);
-      if (i === index) {
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-        if (isOpen) {
-          content.style.maxHeight = '0px';
-          arrow.style.transform = 'rotate(0deg)';
-          currentOpen = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + 'px';
-          arrow.style.transform = 'rotate(180deg)';
-          currentOpen = index;
-        }
-      } else {
-        content.style.maxHeight = '0px';
-        arrow.style.transform = 'rotate(0deg)';
-      }
-    }
-  }
-</script>
-
-
-<footer class="bg-[#edeff0] text-[#1F2D3D] py-12 px-6 md:px-16">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center md:text-left">
-
-    <!-- Bloc Logo & Intro -->
-    <div class="flex flex-col items-center md:items-start">
-      <img src="logo.png" class="h-28 md:h-36 w-auto mb-4" />
-      <p class="text-sm text-[#6B7280] mb-6 max-w-xs">
+    <!-- Logo & Intro -->
+    <div class="text-center md:text-left">
+      <img src="logo.png" alt="Logo" class="h-20 w-auto mx-auto md:mx-0 mb-4">
+      <p class="text-sm text-gray-600 leading-relaxed max-w-xs mx-auto md:mx-0">
         Développez vos compétences et accédez à des formations certifiantes pour une carrière d’avenir.
       </p>
-
-      <div>
-        <h5 class="font-semibold text-sm mb-2">Suivez-nous</h5>
-        <div class="flex justify-center md:justify-start items-center space-x-4">
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/profile.php?id=100088402149912" class="hover:text-[#214980] transition">
-            <i class="fab fa-facebook-f text-lg"></i>
-          </a>
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/g2c-training-485159126/" class="hover:text-[#214980] transition">
-            <i class="fab fa-linkedin-in text-lg"></i>
-          </a>
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/gcc_training/" class="hover:text-[#214980] transition">
-            <i class="fab fa-instagram text-lg"></i>
-          </a>
-        </div>
-      </div>
     </div>
 
-    <!-- Bloc Menu -->
-    <div class="flex flex-col items-center md:items-start">
-      <h4 class="font-semibold mb-4">Menu</h4>
-      <ul class="space-y-2 text-sm text-[#1F2D3D]">
-        <li><a href="#formations" class="hover:text-[#214980]">Formations</a></li>
-        <li><a href="#a-propos" class="hover:text-[#214980]">À propos</a></li>
+    <!-- Menu -->
+    <div class="text-center md:text-left">
+      <h4 class="font-semibold text-lg mb-4 border-b-2 border-[#214980] inline-block">Menu</h4>
+      <ul class="space-y-2">
+        <li><a href="#formations" class="hover:text-[#214980] transition">Formations</a></li>
+        <li><a href="#a-propos" class="hover:text-[#214980] transition">À propos</a></li>
+        <li><a href="#contact" class="hover:text-[#214980] transition">Contact</a></li>
       </ul>
     </div>
 
-    <!-- Bloc Contact -->
-    <div class="flex flex-col items-center md:items-start">
-      <h4 class="font-semibold mb-4">Contact</h4>
-      <ul class="space-y-3 text-sm text-[#1F2D3D] max-w-xs">
+    <!-- Contact -->
+    <div class="text-center md:text-left">
+      <h4 class="font-semibold text-lg mb-4 border-b-2 border-[#214980] inline-block">Contact</h4>
+      <ul class="space-y-3 text-sm">
         <li><i class="fas fa-phone-alt mr-2 text-[#214980]"></i> (+216) 23 580 745</li>
         <li><i class="fas fa-mobile-alt mr-2 text-[#214980]"></i> (+216) 70 621 226</li>
-        <li><i class="fas fa-map-marker-alt mr-2 text-[#214980]"></i> Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, à coté de MG Ennasr2, Ariana</li>
+        <li class="flex justify-center md:justify-start items-start text-sm">
+          <i class="fas fa-map-marker-alt mr-2 text-[#214980] mt-1"></i>
+          <span class="max-w-xs">Avenue Hedi Nouira, Résidence Yassine App AM2 à la Mezzanine, Ariana</span>
+        </li>
       </ul>
     </div>
+
+    <!-- Réseaux sociaux -->
+    <div class="text-center md:text-left">
+      <h4 class="font-semibold text-lg mb-4 border-b-2 border-[#214980] inline-block">Suivez-nous</h4>
+      <div class="flex justify-center md:justify-start space-x-4">
+        <a href="#" class="w-10 h-10 flex items-center justify-center bg-[#214980]/10 rounded-full hover:bg-[#214980] hover:text-white transition">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center bg-[#214980]/10 rounded-full hover:bg-[#214980] hover:text-white transition">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center bg-[#214980]/10 rounded-full hover:bg-[#214980] hover:text-white transition">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
   </div>
+
 
   <!-- WhatsApp floating button -->
   <a href="https://wa.me/21623580745" target="_blank"
-     class="fixed bottom-6 right-6 bg-[#25D366] p-3 rounded-full shadow-lg hover:scale-105 transition">
-    <i class="fab fa-whatsapp text-white text-2xl"></i>
+     class="fixed bottom-6 right-6 bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition transform">
+     <i class="fab fa-whatsapp text-white text-2xl sm:text-3xl"></i>
   </a>
 </footer>
 </body>
