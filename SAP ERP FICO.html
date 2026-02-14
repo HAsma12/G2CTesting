@@ -326,176 +326,172 @@ Ce parcours SAP S/4HANA FICO combine une approche <strong>métier</strong> et <s
       </button>
     </div>
 
-    <!-- Détails Python -->
-    <div
-      x-show="active === 'python'"
-      x-transition:enter="animate__animated animate__fadeInDown animate__faster"
-      x-transition:leave="animate__animated animate__fadeOutUp animate__faster"
-      class="max-w-5xl mx-auto mt-14 bg-white rounded-3xl shadow-2xl p-10 space-y-8 border border-[#1E3A8A]/20"
-      style="display: none;"
-    >
-      <h2 class="text-4xl font-bold text-[#1E3A8A] animate__animated animate__fadeInUp animate__delay-1s">
-       SAP FICO : Métier
-      </h2>
-
-     
-
-      <ul
-        class="grid grid-cols-1 md:grid-cols-2 gap-4 list-disc list-inside text-gray-800 text-lg animate__animated animate__fadeInUp animate__delay-1s"
-      >
-        <li>Introduction à SAP S/4HANA</li>
-        <li>Comptabilité Générale FI-GL</li>
-        <li>Comptabilité Clients et Fournisseurs</li>
-        
-        <li>Reporting financier et analytique</li>
-      
-        <li>30 heures de formation (sessions week-end)</li>
-        <li class="col-span-2 text-center text-green-600 font-semibold">✔ Accès gratuit au système SAP ERP durant la formation</li>
-
-      </ul>
-
-      <!-- Actions -->
-      <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
-        <a
-  href="programmes/programme formation SAP FICO métier.pdf.pdf"
-  download
-  @click.prevent="
-    Swal.fire({
-      icon: 'success',
-      title: 'Téléchargement en cours',
-      text: 'Le programme  va être téléchargé.',
-      timer: 2000,
-      showConfirmButton: false,
-      timerProgressBar: true,
-      didOpen: () => {
-        const timerInterval = setInterval(() => {}, 100);
-        setTimeout(() => clearInterval(timerInterval), 2000);
-      }
-    });
-    setTimeout(() => window.open('programmes/programme formation SAP FICO métier.pdf.pdf', '_blank'), 2100);
-  "
-  class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
+    <!-- Détails metier  -->
+    <!-- Détails SAP Métier -->
+<div
+  x-show="active === 'python'"
+  x-transition:enter="animate__animated animate__fadeInDown animate__faster"
+  x-transition:leave="animate__animated animate__fadeOutUp animate__faster"
+  class="w-full max-w-5xl mx-auto mt-10 md:mt-14 bg-white rounded-3xl shadow-2xl px-6 py-10 md:p-10 space-y-8 border border-[#1E3A8A]/20"
+  style="display: none;"
 >
-  <svg
-    class="w-6 h-6 mr-3 animate-bounce"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    viewBox="0 0 24 24"
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E3A8A] animate__animated animate__fadeInUp animate__delay-1s text-center md:text-left">
+    SAP FICO : Métier
+  </h2>
+
+  <ul
+    class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 list-disc list-inside text-gray-800 text-base sm:text-lg animate__animated animate__fadeInUp animate__delay-1s"
   >
-    <path d="M12 5v14M5 12l7 7 7-7"></path>
-  </svg>
-  Télécharger le programme
-</a>
+    <li>Introduction à SAP S/4HANA</li>
+    <li>Comptabilité Générale FI-GL</li>
+    <li>Comptabilité Clients et Fournisseurs</li>
+    <li>Reporting financier et analytique</li>
+    <li>30 heures de formation (sessions week-end)</li>
 
-        <button
-          @click="
-            Swal.fire({
-              icon: 'info',
-              title: 'Redirection WhatsApp',
-              text: 'Vous allez être redirigé vers WhatsApp.',
-              timer: 2000,
-              showConfirmButton: false,
-              timerProgressBar: true
-            });
-            setTimeout(() => window.open('https://wa.me/21623580745', '_blank'), 2100);
-          "
-          class="flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#25D366]/60"
-        >
-          <i class="fa-brands fa-whatsapp mr-3 text-2xl"></i>
-          Contacter via WhatsApp
-        </button>
-      </div>
-    </div>
+    <li class="col-span-1 sm:col-span-2 text-center text-green-600 font-semibold pt-2">
+      ✔ Accès gratuit au système SAP ERP durant la formation
+    </li>
+  </ul>
 
-    <!-- Détails Java -->
-    <div
-      x-show="active === 'java'"
-      x-transition:enter="animate__animated animate__fadeInDown animate__faster"
-      x-transition:leave="animate__animated animate__fadeOutUp animate__faster"
-      class="max-w-5xl mx-auto mt-14 bg-white rounded-3xl shadow-2xl p-10 space-y-8 border border-[#1E3A8A]/20"
-      style="display: none;"
+  <!-- Actions -->
+  <div class="w-full flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center pt-2 animate__animated animate__fadeInUp animate__delay-2s">
+
+    <!-- Download -->
+    <a
+      href="programmes/programme formation SAP FICO métier.pdf.pdf"
+      download
+      @click.prevent="
+        Swal.fire({
+          icon: 'success',
+          title: 'Téléchargement en cours',
+          text: 'Le programme  va être téléchargé.',
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        });
+        setTimeout(() => window.open('programmes/programme formation SAP FICO métier.pdf.pdf', '_blank'), 2100);
+      "
+      class="w-full sm:w-auto flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-6 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:ring-4 focus:ring-[#1E3A8A]/60"
     >
-    <h2 class="text-4xl font-bold text-[#1E3A8A] animate__animated animate__fadeInUp animate__delay-1s">
-  SAP FICO : Paramétrage
-</h2>
-
-
-      <ul
-        class="grid grid-cols-1 md:grid-cols-2 gap-4 list-disc list-inside text-gray-800 text-lg animate__animated animate__fadeInUp animate__delay-1s"
+      <svg
+        class="w-6 h-6 mr-3 animate-bounce"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+        viewBox="0 0 24 24"
       >
-        <li>Options de base</li>
-        <li>Données de base</li>
-        <li>Pilotage de pièces</li>
-        <li>Processus d'approvisionnement dans SAP</li>
-        <li>Rapprochement</li>
-        <li>Livre de caisse</li>
-        <li>Intégration FI avec d’autres modules</li>
-        <li>Compétences techniques SAP</li>
-        <li> 30 heures de formation (sessions week-end)</li>
-  <li class="col-span-2 text-center text-green-600 font-semibold">✔ Accès gratuit au système SAP ERP durant la formation</li>
+        <path d="M12 5v14M5 12l7 7 7-7"></path>
+      </svg>
+      Télécharger le programme
+    </a>
 
-      </ul>
+    <!-- WhatsApp -->
+    <button
+      @click="
+        Swal.fire({
+          icon: 'info',
+          title: 'Redirection WhatsApp',
+          text: 'Vous allez être redirigé vers WhatsApp.',
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        });
+        setTimeout(() => window.open('https://wa.me/21623580745', '_blank'), 2100);
+      "
+      class="w-full sm:w-auto flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-6 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:ring-4 focus:ring-[#25D366]/60"
+    >
+      <i class="fa-brands fa-whatsapp mr-3 text-2xl"></i>
+      Contacter via WhatsApp
+    </button>
 
-      <!-- Actions -->
-      <div class="flex flex-col sm:flex-row gap-8 justify-center pt-6 animate__animated animate__fadeInUp animate__delay-2s">
-        <a
-  href="programmes/programme formation FICO PARAM.pdf.pdf"
-  download
-  @click.prevent="
-    Swal.fire({
-      icon: 'success',
-      title: 'Téléchargement en cours',
-      text: 'Le programme va être téléchargé.',
-      timer: 2000,
-      showConfirmButton: false,
-      timerProgressBar: true,
-      didOpen: () => {
-        const timerInterval = setInterval(() => {}, 100);
-        setTimeout(() => clearInterval(timerInterval), 2000);
-      }
-    });
-    setTimeout(() => window.open('programmes/programme formation FICO PARAM.pdf.pdf', '_blank'), 2100);
-  "
-  class="flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#1E3A8A]/60"
->
-  <svg
-    class="w-6 h-6 mr-3 animate-bounce"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    viewBox="0 0 24 24"
-  >
-    <path d="M12 5v14M5 12l7 7 7-7"></path>
-  </svg>
-  Télécharger le programme
-</a>
-
-
-        <button
-          @click="
-            Swal.fire({
-              icon: 'info',
-              title: 'Redirection WhatsApp',
-              text: 'Vous allez être redirigé vers WhatsApp.',
-              timer: 2000,
-              showConfirmButton: false,
-              timerProgressBar: true
-            });
-            setTimeout(() => window.open('https://wa.me/21623580745', '_blank'), 2100);
-          "
-          class="flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#25D366]/60"
-        >
-          <i class="fa-brands fa-whatsapp mr-3 text-2xl"></i>
-          Contacter via WhatsApp
-        </button>
-      </div>
-    </div>
   </div>
+</div>
+
+
+<!-- Détails Paramétrage -->
+<div
+  x-show="active === 'java'"
+  x-transition:enter="animate__animated animate__fadeInDown animate__faster"
+  x-transition:leave="animate__animated animate__fadeOutUp animate__faster"
+  class="w-full max-w-5xl mx-auto mt-10 md:mt-14 bg-white rounded-3xl shadow-2xl px-6 py-10 md:p-10 space-y-8 border border-[#1E3A8A]/20"
+  style="display: none;"
+>
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E3A8A] animate__animated animate__fadeInUp animate__delay-1s text-center md:text-left">
+    SAP FICO : Paramétrage
+  </h2>
+
+  <ul
+    class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 list-disc list-inside text-gray-800 text-base sm:text-lg animate__animated animate__fadeInUp animate__delay-1s"
+  >
+    <li>Options de base</li>
+    <li>Données de base</li>
+    <li>Pilotage de pièces</li>
+    <li>Processus d'approvisionnement dans SAP</li>
+    <li>Rapprochement</li>
+    <li>Livre de caisse</li>
+    <li>Intégration FI avec d’autres modules</li>
+    <li>Compétences techniques SAP</li>
+    <li>30 heures de formation (sessions week-end)</li>
+
+    <li class="col-span-1 sm:col-span-2 text-center text-green-600 font-semibold pt-2">
+      ✔ Accès gratuit au système SAP ERP durant la formation
+    </li>
+  </ul>
+
+  <!-- Actions -->
+  <div class="w-full flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center pt-2 animate__animated animate__fadeInUp animate__delay-2s">
+
+    <!-- Download -->
+    <a
+      href="programmes/programme formation FICO PARAM.pdf.pdf"
+      download
+      @click.prevent="
+        Swal.fire({
+          icon: 'success',
+          title: 'Téléchargement en cours',
+          text: 'Le programme va être téléchargé.',
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        });
+        setTimeout(() => window.open('programmes/programme formation FICO PARAM.pdf.pdf', '_blank'), 2100);
+      "
+      class="w-full sm:w-auto flex items-center justify-center bg-[#1E3A8A] hover:bg-[#2c59b9] text-white font-semibold px-6 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:ring-4 focus:ring-[#1E3A8A]/60"
+    >
+      <svg
+        class="w-6 h-6 mr-3 animate-bounce"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 5v14M5 12l7 7 7-7"></path>
+      </svg>
+      Télécharger le programme
+    </a>
+
+    <!-- WhatsApp -->
+    <button
+      @click="
+        Swal.fire({
+          icon: 'info',
+          title: 'Redirection WhatsApp',
+          text: 'Vous allez être redirigé vers WhatsApp.',
+          timer: 2000,
+          showConfirmButton: false,
+          timerProgressBar: true
+        });
+        setTimeout(() => window.open('https://wa.me/21623580745', '_blank'), 2100);
+      "
+      class="w-full sm:w-auto flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold px-6 py-4 rounded-full shadow-lg transition-transform hover:scale-105 focus:ring-4 focus:ring-[#25D366]/60"
+    >
+      <i class="fa-brands fa-whatsapp mr-3 text-2xl"></i>
+      Contacter via WhatsApp
+    </button>
+
+  </div>
+</div>
+ </div>
 
  <!-- Footer Responsive -->
 <footer class="bg-[#edeff0] text-[#1F2D3D] pt-12 pb-6 px-6 sm:px-10 md:px-16">
